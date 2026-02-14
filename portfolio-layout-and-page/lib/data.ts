@@ -22,12 +22,24 @@ export const PERSONAL_INFO = {
   email: "shiki2hustle@gmail.com",
   phone: "+91-9000229595",
   
-  // Social Links
+  // Social Links (legacy - keeping for backward compatibility)
   github: "https://github.com/Git-brintsi20",
   linkedin: "https://www.linkedin.com/in/salugu-harshita-bhanu-b447b1274/",
   medium: "https://medium.com/@shiki2hustle",
   leetcode: "https://leetcode.com/u/hac_brintsi20/",
-  codeforces: "https://codeforces.com/profile/shiki_20",
+  // codeforces: "https://codeforces.com/profile/shiki_20", // Stats only, no live link
+  // codechef: "https://www.codechef.com/users/shiki_20", // Stats only, no live link
+  
+  // Profiles (grouped for components)
+  profiles: {
+    github: "https://github.com/Git-brintsi20",
+    linkedin: "https://www.linkedin.com/in/salugu-harshita-bhanu-b447b1274/",
+    medium: "https://medium.com/@shiki2hustle",
+    leetcode: "https://leetcode.com/u/hac_brintsi20/",
+    // codeforces: "https://codeforces.com/profile/shiki_20", // Stats only
+    // codechef: "https://www.codechef.com/users/shiki_20", // Stats only
+    // geeksforgeeks: N/A - no account
+  },
   
   // Professional Photo
   // Place your professional photo at: /public/images/profile/professional-photo.jpg

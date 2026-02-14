@@ -51,10 +51,10 @@ export default function RootLayout({
       className={`${playfairDisplay.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
-      <body className="font-sans antialiased bg-background text-foreground flex flex-col min-h-screen">
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+      <body className="font-sans antialiased bg-background text-foreground flex flex-col min-h-screen scroll-smooth">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange={false}>
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 pt-16 md:pt-20">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
