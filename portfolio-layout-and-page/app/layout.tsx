@@ -5,6 +5,8 @@ import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
+import CursorSpotlight from '@/components/cursor-spotlight'
+import GrainOverlay from '@/components/grain-overlay'
 
 const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
@@ -53,6 +55,8 @@ export default function RootLayout({
     >
       <body className="font-sans antialiased bg-background text-foreground flex flex-col min-h-screen scroll-smooth">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange={false}>
+          <CursorSpotlight />
+          <GrainOverlay />
           <Navbar />
           <main className="flex-1 pt-16 md:pt-20">{children}</main>
           <Footer />

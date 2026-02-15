@@ -126,6 +126,126 @@
     animation: float 3s ease-in-out infinite;
   }
 
+  /* Shimmer animation */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 3s linear infinite;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--primary) / 0.1) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+  }
+
+  /* Pulse scale animation */
+  @keyframes pulse-scale {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+  }
+  
+  .animate-pulse-scale {
+    animation: pulse-scale 2s ease-in-out infinite;
+  }
+
+  /* Border glow animation */
+  @keyframes border-glow {
+    0%, 100% {
+      border-color: hsl(var(--primary) / 0.3);
+      box-shadow: 0 0 15px hsl(var(--primary) / 0.1);
+    }
+    50% {
+      border-color: hsl(var(--primary) / 0.6);
+      box-shadow: 0 0 25px hsl(var(--primary) / 0.3);
+    }
+  }
+  
+  .animate-border-glow {
+    animation: border-glow 3s ease-in-out infinite;
+  }
+
+  /* Spin slow animation */
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+
+  /* Typewriter cursor */
+  @keyframes blink {
+    0%, 50% {
+      opacity: 1;
+    }
+    51%, 100% {
+      opacity: 0;
+    }
+  }
+  
+  .animate-blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  /* Draw line animation */
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  .animate-draw {
+    animation: draw 2s ease-out forwards;
+  }
+
+  /* Bounce subtle */
+  @keyframes bounce-subtle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+  }
+
+  /* Text reveal */
+  @keyframes text-reveal {
+    from {
+      clip-path: inset(0 100% 0 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+  
+  .animate-text-reveal {
+    animation: text-reveal 0.8s ease-out forwards;
+  }
+
   /* Line clamp utilities */
   .line-clamp-3 {
     display: -webkit-box;
@@ -140,5 +260,96 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  /* Glassmorphism utility */
+  .glass {
+    background: hsl(var(--card) / 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .glass-dark {
+    background: hsl(var(--background) / 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--border) / 0.3);
+  }
+
+  /* Gradient border */
+  .gradient-border {
+    position: relative;
+  }
+  
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--accent)));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  /* Text gradient utility */
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Hoverable card transform */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px hsl(var(--primary) / 0.15);
+  }
+
+  /* 3D Tilt perspective container */
+  .perspective {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 5px;
+  border: 2px solid hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.7);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--muted)) hsl(var(--background));
+}
+
+/* Selection styling */
+::selection {
+  background: hsl(var(--primary) / 0.3);
+  color: hsl(var(--foreground));
 }
 
