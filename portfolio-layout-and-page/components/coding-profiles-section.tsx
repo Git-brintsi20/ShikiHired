@@ -208,7 +208,7 @@ export default function CodingProfilesSection() {
                 {/* Content */}
                 <div className="p-8">
                   {/* Streak Stats */}
-                  <div className="flex items-center justify-center gap-8 mb-8">
+                  <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 mb-8">
                     <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
@@ -230,7 +230,7 @@ export default function CodingProfilesSection() {
                   </div>
 
                   {/* Main Stats with Progress Rings */}
-                  <div className="grid grid-cols-3 gap-6 mb-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
                     {profile.stats.map((stat, index) => {
                       const StatIcon = stat.icon
                       return (

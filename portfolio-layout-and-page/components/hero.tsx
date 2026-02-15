@@ -50,13 +50,11 @@ export default function Hero() {
   const roles = ['Full-Stack Developer', 'Problem Solver', 'UI/UX Enthusiast', 'Open Source Contributor']
   const typedRole = useTypewriter(roles, 80, 40, 2000)
   
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start start', 'end start']
-  })
+  // Use window scroll progress instead of target ref to avoid hydration issues
+  const { scrollYProgress } = useScroll()
   
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  const y = useTransform(scrollYProgress, [0, 0.3], ['0%', '50%'])
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
 
   useEffect(() => {
     setMounted(true)

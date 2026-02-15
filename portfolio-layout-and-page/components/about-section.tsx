@@ -13,10 +13,8 @@ export default function AboutSection() {
   const { tiltStyle, handleMouseMove, handleMouseLeave } = use3DTilt(8)
   const [imageRevealed, setImageRevealed] = useState(false)
   
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start']
-  })
+  // Use window scroll for parallax to avoid hydration issues
+  const { scrollYProgress } = useScroll()
   
   const parallaxY = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
   const parallaxY2 = useTransform(scrollYProgress, [0, 1], ['0%', '-15%'])
@@ -217,7 +215,7 @@ export default function AboutSection() {
             </motion.p>
             
             {/* Glassmorphism Highlights Grid */}
-            <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4 mt-6">
+            <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
               {highlights.map(({ icon: Icon, title, description, color }, index) => (
                 <motion.div
                   key={title}

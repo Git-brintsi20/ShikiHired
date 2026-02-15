@@ -160,23 +160,24 @@ export default function ProjectCard({
             </div>
             
             {/* Carousel */}
-            <div className="relative aspect-video w-full overflow-hidden">
+            <div className="relative aspect-video w-full overflow-hidden bg-background/50">
               {hasImages ? (
-                <AnimatePresence mode="wait">
+                <AnimatePresence mode="sync">
                   <motion.div
                     key={currentImageIndex}
-                    initial={{ opacity: 0, scale: 1.1 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.4 }}
-                    className="absolute inset-0"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 flex items-center justify-center"
                   >
                     <Image
                       src={images[currentImageIndex]}
                       alt={`${title} screenshot ${currentImageIndex + 1}`}
                       fill
-                      className="object-cover object-top"
+                      className="object-contain"
                       sizes="(max-width: 768px) 100vw, 50vw"
+                      priority
                     />
                   </motion.div>
                 </AnimatePresence>
@@ -206,7 +207,7 @@ export default function ProjectCard({
                   rel="noopener noreferrer"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: isHovered ? 1 : 0, scale: isHovered ? 1 : 0.8 }}
-                  className="absolute inset-0 flex items-center justify-center bg-background/30 backdrop-blur-sm"
+                  className="absolute inset-0 flex items-center justify-center bg-background/40 z-10"
                 >
                   <motion.div
                     whileHover={{ scale: 1.1 }}
@@ -221,19 +222,19 @@ export default function ProjectCard({
               {hasMultipleImages && (
                 <>
                   <motion.button
-                    onClick={prevImage}
+                    onClick={(e) => { e.stopPropagation(); prevImage(); }}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -10 }}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 text-foreground hover:bg-background transition-all shadow-lg"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-background/95 border border-border/50 text-foreground hover:bg-background transition-all shadow-lg z-20"
                     aria-label="Previous image"
                   >
                     <ChevronLeft size={20} />
                   </motion.button>
                   <motion.button
-                    onClick={nextImage}
+                    onClick={(e) => { e.stopPropagation(); nextImage(); }}
                     initial={{ opacity: 0, x: 10 }}
                     animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : 10 }}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 text-foreground hover:bg-background transition-all shadow-lg"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-background/95 border border-border/50 text-foreground hover:bg-background transition-all shadow-lg z-20"
                     aria-label="Next image"
                   >
                     <ChevronRight size={20} />
