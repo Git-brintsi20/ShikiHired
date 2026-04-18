@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { ExternalLink, Github, Play, Award } from 'lucide-react'
+import { ExternalLink, Github, Play, Award, Trophy } from 'lucide-react'
 import Link from 'next/link'
 import { PROJECTS } from '@/lib/data'
 

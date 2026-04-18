@@ -3,7 +3,7 @@ import { Playfair_Display, DM_Sans, JetBrains_Mono } from 'next/font/google'
 
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
-import Navbar from '@/components/navbar'
+import StickyHeader from '@/components/sticky-header'
 import Footer from '@/components/footer'
 import CursorSpotlight from '@/components/cursor-spotlight'
 import GrainOverlay from '@/components/grain-overlay'
@@ -75,8 +75,8 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange={false}>
           <CursorSpotlight />
           <GrainOverlay />
-          <Navbar />
-          <main className="flex-1 pt-16 md:pt-20">{children}</main>
+          <StickyHeader />
+          <main className="flex-1">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

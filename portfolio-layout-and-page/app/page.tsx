@@ -1,5 +1,4 @@
 import Hero from '@/components/hero'
-import StickyHeader from '@/components/sticky-header'
 import FeaturedProjects from '@/components/featured-projects'
 import AboutSection from '@/components/about-section'
 import WhyYouSection from '@/components/why-you-section'
@@ -12,9 +11,6 @@ import ContactSection from '@/components/contact-section'
 export default function Home() {
   return (
     <div className="w-full bg-background">
-      {/* Sticky Navigation Header */}
-      <StickyHeader />
-
       {/* Hero Section */}
       <Hero />
 
