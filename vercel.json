@@ -1,3 +1,5 @@
 {
-  "root": "portfolio-layout-and-page"
+  "buildCommand": "cd portfolio-layout-and-page && npm install --legacy-peer-deps && npm run build",
+  "outputDirectory": "portfolio-layout-and-page/.next"
 }
+
