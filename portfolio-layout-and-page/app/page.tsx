@@ -17,6 +17,12 @@ export default function Home() {
       {/* Featured Projects - Top 3 Highlighted */}
       <FeaturedProjects />
 
+      {/* Tech Stack Section */}
+      <TechStackSection />
+
+      {/* Coding Profiles Section */}
+      <CodingProfilesSection />
+
       {/* About / Beyond The Code - Redesigned Layout */}
       <AboutSection />
 
@@ -28,12 +34,6 @@ export default function Home() {
 
       {/* Achievements & Experience Section */}
       <AchievementsSection />
-
-      {/* Tech Stack Section */}
-      <TechStackSection />
-
-      {/* Coding Profiles Section */}
-      <CodingProfilesSection />
 
       {/* Contact CTA Section */}
       <ContactSection />
