@@ -3,6 +3,9 @@ import { NextResponse } from 'next/server'
 const LEETCODE_USERNAME = 'hac_brintsi20'
 const LEETCODE_API = 'https://leetcode.com/graphql'
 
+// Force dynamic to avoid ISR issues
+export const dynamic = 'force-dynamic'
+
 const STATS_QUERY = `
   query getUserProfile($username: String!) {
     matchedUser(username: $username) {
@@ -28,8 +31,6 @@ const STATS_QUERY = `
     }
   }
 `
-
-export const revalidate = 43200 // 12 hours
 
 export async function GET() {
   try {

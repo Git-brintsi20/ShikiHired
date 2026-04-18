@@ -3,7 +3,8 @@ import { NextResponse } from 'next/server'
 const CF_HANDLE = 'shiki_20'
 const CF_API = `https://codeforces.com/api/user.info?handles=${CF_HANDLE}`
 
-export const revalidate = 43200 // 12 hours
+// Force dynamic to avoid ISR issues
+export const dynamic = 'force-dynamic'
 
 export async function GET() {
   try {
