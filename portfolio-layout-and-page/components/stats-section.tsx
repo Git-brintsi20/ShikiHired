@@ -149,76 +149,80 @@ function StatCard({ label, value, description, delay = 0, index = 0 }: StatCardP
         onMouseLeave={handleMouseLeave}
         style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-        className="relative flex flex-col items-center gap-4 p-8 rounded-3xl bg-card/80 backdrop-blur-sm border border-border/50 transition-all duration-500 cursor-default overflow-hidden h-full"
+        className="relative flex flex-col items-center justify-between gap-3 p-6 rounded-3xl bg-card/80 backdrop-blur-sm border border-border/50 transition-all duration-500 cursor-default overflow-hidden h-full min-h-[320px]"
       >
-        {/* Animated border gradient */}
+        {/* Animated gradient border glow on hover */}
         <motion.div
           className="absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-300"
           style={{
-            background: 'linear-gradient(135deg, hsl(var(--primary)/0.3), hsl(var(--secondary)/0.3), hsl(var(--accent)/0.3))',
+            background: 'linear-gradient(135deg, hsl(var(--primary)/0.4), hsl(var(--secondary)/0.4), hsl(var(--accent)/0.4))',
             opacity: isHovered ? 1 : 0,
+            boxShadow: isHovered ? '0 0 40px rgba(var(--primary), 0.2)' : 'none',
           }}
         />
-        
+
         {/* Inner glow */}
         <div className="absolute inset-[1px] rounded-3xl bg-card" />
-        
+
         {/* Particle burst on hover */}
         {isHovered && (
           <motion.div
             initial={{ scale: 0, opacity: 1 }}
-            animate={{ scale: 2, opacity: 0 }}
-            transition={{ duration: 0.6 }}
+            animate={{ scale: 2.5, opacity: 0 }}
+            transition={{ duration: 0.8 }}
             className="absolute inset-0 rounded-full bg-primary/20 pointer-events-none"
           />
         )}
-        
-        {/* Icon with radial progress */}
-        <div className="relative z-10">
+
+        {/* Icon with radial progress - larger and more prominent */}
+        <div className="relative z-10 flex-shrink-0">
           <RadialProgress progress={progressValue} size={100} strokeWidth={6} delay={delay} />
           <motion.div
-            animate={{ scale: isHovered ? 1.1 : 1, rotate: isHovered ? 360 : 0 }}
+            animate={{
+              scale: isHovered ? 1.2 : 1,
+              rotate: isHovered ? 360 : 0,
+            }}
             transition={{ duration: 0.5 }}
             className="absolute inset-0 flex items-center justify-center"
           >
-            <Icon className="w-8 h-8 text-primary" />
+            <Icon className="w-10 h-10 text-primary" />
           </motion.div>
         </div>
-        
-        {/* Value */}
-        <motion.p 
-          className="relative z-10 font-serif text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent"
+
+        {/* Large animated value */}
+        <motion.p
+          className="relative z-10 font-serif text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent"
           style={{ transform: 'translateZ(30px)' }}
         >
           <AnimatedCounter value={numericValue} suffix={suffix} />
         </motion.p>
-        
+
         {/* Label */}
-        <motion.p 
-          className="relative z-10 font-sans text-sm md:text-base text-foreground/90 text-center font-medium"
+        <motion.p
+          className="relative z-10 font-sans text-sm md:text-base text-foreground/90 text-center font-semibold"
           style={{ transform: 'translateZ(20px)' }}
         >
           {label}
         </motion.p>
-        
+
         {/* Description */}
         {description && (
-          <motion.p 
+          <motion.p
             className="relative z-10 font-sans text-xs text-muted-foreground text-center"
             style={{ transform: 'translateZ(10px)' }}
           >
             {description}
           </motion.p>
         )}
-        
+
         {/* Shine effect on hover */}
         <motion.div
           className="absolute inset-0 opacity-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%)',
+            background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%)',
             opacity: isHovered ? 1 : 0,
           }}
-          animate={isHovered ? { x: ['0%', '200%'] } : { x: '0%' }}
+          animate={isHovered ? { x: ['-100%', '200%'] } : { x: '0%' }}
           transition={{ duration: 0.6 }}
         />
       </motion.div>

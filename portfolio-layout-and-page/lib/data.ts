@@ -623,6 +623,67 @@ export const ACHIEVEMENTS = [
 ]
 
 // ============================================================================
+// EXTRACURRICULARS & ACTIVITIES
+// ============================================================================
+
+export interface Extracurricular {
+  category: string
+  items: {
+    name: string
+    description?: string
+    year?: string
+  }[]
+}
+
+export const EXTRACURRICULARS: Extracurricular[] = [
+  {
+    category: "🏆 Hackathon Wins",
+    items: [
+      {
+        name: "MongoDB Track Winner - HackByte 4.0 (MLH)",
+        description: "Best database schema design with ELIXA - AI event orchestration platform",
+        year: "2025"
+      },
+      {
+        name: "Top 8 Finalist - HackByte 3.0",
+        description: "Ranked among 126 teams for PlantZ - AI plant healthcare assistant",
+        year: "2025"
+      },
+      {
+        name: "Event Anchor & PR Team - HackByte 2.0",
+        description: "Coordinated digital marketing and national hackathon logistics",
+        year: "2024"
+      }
+    ]
+  },
+  {
+    category: "✍️ Creative & Hobbies",
+    items: [
+      {
+        name: "Active Blogger on Medium",
+        description: "Writing about AI/ML, Web Development, and Cybersecurity as 'Shiki'",
+        year: "2023-Present"
+      },
+      {
+        name: "Literary Society Member",
+        description: "Samvaad Literary and Quizzing Society - IIIT Jabalpur",
+        year: "2023-Present"
+      },
+      {
+        name: "Event Coordinator",
+        description: "Organized 10+ literary and cultural events on campus",
+        year: "2023-2025"
+      },
+      {
+        name: "Language Learning",
+        description: "Learning Japanese on Duolingo - consistent learner",
+        year: "2024-Present"
+      }
+    ]
+  }
+]
+
+// ============================================================================
 // EXPORT ALL
 // ============================================================================
 
@@ -635,4 +696,5 @@ export default {
   EDUCATION,
   CERTIFICATES,
   ACHIEVEMENTS,
+  EXTRACURRICULARS,
 }

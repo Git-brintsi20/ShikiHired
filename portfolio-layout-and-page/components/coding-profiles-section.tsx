@@ -205,59 +205,59 @@ export default function CodingProfilesSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mb-16"
+          className="mb-12"
         >
-          <div className="group relative bg-card/80 backdrop-blur-sm border border-border/50 rounded-3xl overflow-hidden max-w-3xl mx-auto shadow-xl">
+          <div className="group relative bg-card/80 backdrop-blur-sm border border-border/50 rounded-3xl overflow-hidden max-w-2xl mx-auto shadow-xl">
             <motion.div
               className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               style={{ background: 'linear-gradient(135deg, #FFA11620, transparent, #FFA11620)' }}
             />
 
             {/* Gradient Header */}
-            <div className="relative h-32 bg-gradient-to-r from-[#FFA116] to-[#F9A825]">
+            <div className="relative h-24 bg-gradient-to-r from-[#FFA116] to-[#F9A825]">
               <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between">
+              <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between">
                 <div>
                   <span className="text-white/60 text-xs uppercase tracking-widest font-medium">Featured Platform</span>
-                  <h3 className="font-serif text-3xl font-bold text-white">LeetCode</h3>
-                  <p className="text-white/80 font-mono text-sm">@hac_brintsi20</p>
+                  <h3 className="font-serif text-2xl md:text-3xl font-bold text-white">LeetCode</h3>
+                  <p className="text-white/80 font-mono text-xs">@hac_brintsi20</p>
                 </div>
-                <div className="flex flex-col items-end gap-2">
+                <div className="flex flex-col items-end gap-1">
                   <LiveBadge isFallback={!!lc.fallback} />
-                  <motion.div whileHover={{ rotate: 10, scale: 1.1 }} className="p-4 rounded-2xl bg-white/20 backdrop-blur-md">
-                    <Code2 className="w-10 h-10 text-white" />
+                  <motion.div whileHover={{ rotate: 10, scale: 1.1 }} className="p-3 rounded-2xl bg-white/20 backdrop-blur-md">
+                    <Code2 className="w-8 h-8 text-white" />
                   </motion.div>
                 </div>
               </div>
             </div>
 
             {/* Content */}
-            <div className="p-8">
+            <div className="p-6">
               {/* Activity chips */}
-              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 mb-8">
+              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mb-6">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                   transition={{ delay: 0.4 }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 text-accent text-xs"
                 >
-                  <Flame className="w-4 h-4" />
-                  <span className="font-mono text-sm"><AnimatedNumber value={lc.activeDays} /> active days</span>
+                  <Flame className="w-3 h-3" />
+                  <span className="font-mono text-xs"><AnimatedNumber value={lc.activeDays} /> days</span>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                   transition={{ delay: 0.5 }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/10 text-secondary text-xs"
                 >
-                  <Trophy className="w-4 h-4" />
-                  <span className="font-mono text-sm"><AnimatedNumber value={lc.contests} /> contests</span>
+                  <Trophy className="w-3 h-3" />
+                  <span className="font-mono text-xs"><AnimatedNumber value={lc.contests} /> contests</span>
                 </motion.div>
               </div>
 
               {/* Stats with progress rings */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                 {([
                   { label: 'Problems Solved', value: lc.solved,          suffix: '+', icon: Target,     progress: lcSolvedProgress },
                   { label: 'Contest Rating',   value: lc.rating,          suffix: '',  icon: Trophy,     progress: lcRatingProgress },
@@ -272,13 +272,13 @@ export default function CodingProfilesSection() {
                       transition={{ delay: 0.3 + index * 0.1 }}
                       className="relative flex flex-col items-center"
                     >
-                      <div className="relative mb-3">
-                        <ProgressRing progress={stat.progress} size={90} stroke={6} color="#FFA116" />
+                      <div className="relative mb-2">
+                        <ProgressRing progress={stat.progress} size={80} stroke={5} color="#FFA116" />
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <StatIcon className="w-6 h-6" style={{ color: '#FFA116' }} />
+                          <StatIcon className="w-5 h-5" style={{ color: '#FFA116' }} />
                         </div>
                       </div>
-                      <p className="font-mono text-2xl md:text-3xl font-bold text-foreground">
+                      <p className="font-mono text-xl md:text-2xl font-bold text-foreground">
                         <AnimatedNumber value={stat.value} suffix={stat.suffix} />
                       </p>
                       <p className="text-xs text-muted-foreground text-center">{stat.label}</p>
@@ -292,14 +292,14 @@ export default function CodingProfilesSection() {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="relative w-full py-4 px-6 rounded-xl font-medium overflow-hidden group/btn"
+                  className="relative w-full py-3 px-6 rounded-xl font-medium overflow-hidden group/btn"
                 >
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-[#FFA116] to-[#F9A825]"
                     animate={{ opacity: [0.8, 1, 0.8] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   />
-                  <span className="relative flex items-center justify-center gap-2 text-white">
+                  <span className="relative flex items-center justify-center gap-2 text-white text-sm">
                     View LeetCode Profile
                     <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                   </span>
@@ -322,7 +322,7 @@ export default function CodingProfilesSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl mx-auto">
 
           {/* â”€â”€ Codeforces (live) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
           <motion.div

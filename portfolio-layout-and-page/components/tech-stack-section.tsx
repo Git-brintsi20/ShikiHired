@@ -83,11 +83,11 @@ function TechBadge({ name, index, categoryIndex }: TechBadgeProps) {
       className="group relative"
     >
       <motion.div
-        whileHover={{ 
-          scale: 1.05, 
-          y: -6,
+        whileHover={{
+          scale: 1.05,
+          y: -4,
         }}
-        className="relative p-4 rounded-2xl bg-card/80 backdrop-blur-sm border border-border/50 transition-all duration-300 cursor-default overflow-hidden"
+        className="relative p-3 rounded-2xl bg-card/80 backdrop-blur-sm border border-border/50 transition-all duration-300 cursor-default overflow-hidden"
       >
         {/* Hover glow */}
         <motion.div
@@ -105,9 +105,9 @@ function TechBadge({ name, index, categoryIndex }: TechBadgeProps) {
           transition={{ duration: 0.6 }}
         />
         
-        <div className="relative space-y-3">
+        <div className="relative space-y-2">
           <div className="flex items-center justify-between">
-            <span className="font-sans text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+            <span className="font-sans text-xs font-medium text-foreground group-hover:text-primary transition-colors">
               {name}
             </span>
             <motion.span
@@ -151,21 +151,21 @@ function SkillCategory({ title, skills, icon: Icon, gradient, delay, index }: Sk
         initial={{ opacity: 0, x: -20 }}
         animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
         transition={{ duration: 0.5, delay: delay + 0.1 }}
-        className="flex items-center gap-4 mb-6"
+        className="flex items-center gap-3 mb-4"
       >
-        <div className={`p-3 rounded-xl bg-gradient-to-br ${gradient} text-white shadow-lg`}>
-          <Icon className="w-6 h-6" />
+        <div className={`p-2.5 rounded-xl bg-gradient-to-br ${gradient} text-white shadow-lg`}>
+          <Icon className="w-5 h-5" />
         </div>
         <div>
-          <h3 className="font-serif text-xl md:text-2xl font-bold text-foreground">
+          <h3 className="font-serif text-lg md:text-xl font-bold text-foreground">
             {title}
           </h3>
-          <p className="text-sm text-muted-foreground">{skills.length} technologies</p>
+          <p className="text-xs text-muted-foreground">{skills.length} tech</p>
         </div>
       </motion.div>
-      
+
       {/* Skills Grid */}
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-2">
         {skills.map((tech, idx) => (
           <TechBadge key={tech} name={tech} index={idx} categoryIndex={index} />
         ))}
@@ -230,8 +230,8 @@ export default function TechStackSection() {
           </p>
         </motion.div>
 
-        {/* Tech Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+      {/* Tech Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {categories.map((cat, index) => (
             <SkillCategory
               key={cat.title}

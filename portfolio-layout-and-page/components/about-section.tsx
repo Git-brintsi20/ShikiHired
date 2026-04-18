@@ -2,9 +2,9 @@
 
 import { useRef, useState } from 'react'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
-import { MapPin, GraduationCap, Pen, Mic, Sparkles, Quote } from 'lucide-react'
+import { MapPin, GraduationCap, Pen, Mic, Sparkles, Quote, Trophy, BookOpen } from 'lucide-react'
 import Image from 'next/image'
-import { PERSONAL_INFO } from '@/lib/data'
+import { PERSONAL_INFO, EXTRACURRICULARS } from '@/lib/data'
 import { use3DTilt } from '@/hooks/use-animations'
 
 export default function AboutSection() {
@@ -222,8 +222,8 @@ export default function AboutSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ delay: 0.6 + index * 0.1 }}
-                  whileHover={{ 
-                    y: -6, 
+                  whileHover={{
+                    y: -6,
                     scale: 1.02,
                     boxShadow: '0 20px 40px -10px rgba(0,0,0,0.2)',
                   }}
@@ -231,7 +231,7 @@ export default function AboutSection() {
                 >
                   {/* Gradient hover background */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-                  
+
                   <div className={`relative p-2.5 rounded-xl bg-gradient-to-br ${color} text-white shrink-0`}>
                     <Icon size={18} />
                   </div>
@@ -241,6 +241,58 @@ export default function AboutSection() {
                   </div>
                 </motion.div>
               ))}
+            </motion.div>
+
+            {/* Extracurriculars Section */}
+            <motion.div variants={itemVariants} className="mt-8 pt-6 border-t border-border/30">
+              <h3 className="font-serif text-lg md:text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                <Trophy className="w-5 h-5 text-accent" />
+                Extracurriculars & Activities
+              </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {EXTRACURRICULARS.map((category, catIdx) => (
+                  <motion.div
+                    key={category.category}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+                    transition={{ delay: 1.0 + catIdx * 0.15 }}
+                    className="space-y-3"
+                  >
+                    <h4 className="font-sans font-semibold text-sm text-foreground/80">
+                      {category.category}
+                    </h4>
+                    <div className="space-y-2">
+                      {category.items.map((item, itemIdx) => (
+                        <motion.div
+                          key={item.name}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+                          transition={{ delay: 1.0 + catIdx * 0.15 + itemIdx * 0.08 }}
+                          className="flex items-start gap-3 p-3 rounded-lg bg-card/30 border border-border/20 hover:border-accent/30 transition-all duration-300"
+                        >
+                          <div className="flex-shrink-0 w-1 h-1 rounded-full bg-accent mt-2" />
+                          <div className="flex-1 min-w-0">
+                            <p className="font-sans text-sm font-medium text-foreground leading-tight">
+                              {item.name}
+                            </p>
+                            {item.description && (
+                              <p className="font-sans text-xs text-muted-foreground mt-1">
+                                {item.description}
+                              </p>
+                            )}
+                            {item.year && (
+                              <p className="font-sans text-xs text-muted-foreground/60 mt-1">
+                                {item.year}
+                              </p>
+                            )}
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
             
             {/* CTA Badge */}
