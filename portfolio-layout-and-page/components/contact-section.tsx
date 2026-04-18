@@ -52,7 +52,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section ref={sectionRef} id="contact" className="relative w-full py-24 md:py-32 overflow-hidden">
+    <section ref={sectionRef} id="contact" className="relative w-full py-16 md:py-24 overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(60,179,113,0.05),transparent_70%)]" />

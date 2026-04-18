@@ -44,8 +44,8 @@ export default function AboutSection() {
   const highlights = [
     {
       icon: GraduationCap,
-      title: '3rd Year CS Student',
-      description: 'IIIT Jabalpur | CGPA 8.1',
+      title: '3rd Year CSE Student',
+      description: 'IIIT Jabalpur | CGPA 8.4',
       color: 'from-primary to-blue-400',
     },
     {
@@ -56,20 +56,20 @@ export default function AboutSection() {
     },
     {
       icon: Pen,
-      title: 'Creative Writer',
-      description: 'Poetry on Medium as "Shiki"',
+      title: 'AI/ML & Cybersecurity',
+      description: 'Diving deep into AI, LLMs & security research',
       color: 'from-secondary to-purple-400',
     },
     {
       icon: Mic,
-      title: 'Public Speaker',
-      description: 'Event Anchor & Host',
+      title: 'Competitive Programmer',
+      description: '300+ LeetCode · Codeforces · CodeChef 3⭐',
       color: 'from-orange-500 to-amber-400',
     },
   ]
 
   return (
-    <section ref={sectionRef} id="about" className="relative w-full py-24 md:py-32 overflow-hidden">
+    <section ref={sectionRef} id="about" className="relative w-full py-16 md:py-24 overflow-hidden">
       {/* Parallax Background Elements */}
       <div className="absolute inset-0 -z-10">
         <motion.div 
@@ -90,7 +90,7 @@ export default function AboutSection() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center"
         >
           {/* Image Column with 3D Tilt */}
           <motion.div variants={itemVariants} className="flex justify-center lg:justify-start">
@@ -156,7 +156,7 @@ export default function AboutSection() {
                   >
                     <Quote className="w-4 h-4 text-primary mb-2" />
                     <p className="text-xs text-foreground/80 italic leading-relaxed">
-                      "Building products that make a real difference, one line of code at a time."
+                      "Every good product solves a real problem for a real person."
                     </p>
                   </motion.div>
                 </div>
@@ -203,15 +203,15 @@ export default function AboutSection() {
             </motion.div>
             
             <motion.p variants={itemVariants} className="font-sans text-base md:text-lg text-muted-foreground leading-relaxed">
-              I'm a passionate full-stack developer who believes in building products that make a real difference. 
-              My journey started with curiosity about how websites work, and now I ship production-ready applications 
-              that handle real users and real data.
+              I'm a passionate full-stack developer who believes in building products that make a real difference.
+              My journey started with curiosity about how systems work, and now I ship production-ready applications
+              that handle real users and real data. I approach every project as both a dev and a user.
             </motion.p>
-            
+
             <motion.p variants={itemVariants} className="font-sans text-base md:text-lg text-muted-foreground leading-relaxed">
-              When I'm not coding, you'll find me writing poetry on Medium under the pen name "Shiki," 
-              anchoring college events, or diving into competitive programming challenges. I'm always looking 
-              for opportunities that combine technical excellence with creative problem-solving.
+              Currently diving deep into <b>AI/ML and Generative AI</b>, exploring <b>cybersecurity and ethical hacking</b>,
+              and grinding through competitive programming challenges. When I'm not coding, you'll find me on LeetCode,
+              writing on Medium, or exploring new technologies that push the boundaries of what's possible.
             </motion.p>
             
             {/* Glassmorphism Highlights Grid */}

@@ -125,7 +125,7 @@ export default function CodingProfilesSection() {
   const cfRatingProgress = Math.min(Math.round(((cf.rating - 800) / (3500 - 800)) * 100), 99)
 
   return (
-    <section ref={sectionRef} id="coding-profiles" className="relative w-full py-24 md:py-32 overflow-hidden">
+    <section ref={sectionRef} id="coding-profiles" className="relative w-full py-16 md:py-24 overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(65,105,225,0.03),transparent_50%)]" />

@@ -96,7 +96,7 @@ export default function AchievementsSection() {
   }
 
   return (
-    <section ref={sectionRef} id="achievements" className="relative w-full bg-card/50 border-y border-border py-20 md:py-28 overflow-hidden">
+    <section ref={sectionRef} id="achievements" className="relative w-full bg-card/50 border-y border-border py-16 md:py-20 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/3 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
@@ -163,7 +163,7 @@ export default function AchievementsSection() {
               <motion.div
                 key={item.id}
                 variants={itemVariants}
-                className={`relative flex items-center mb-8 md:mb-12 ${
+                className={`relative flex items-center mb-6 md:mb-8 ${
                   isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
                 }`}
               >

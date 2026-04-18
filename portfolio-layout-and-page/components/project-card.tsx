@@ -96,15 +96,15 @@ export default function ProjectCard({
       initial={{ opacity: 0, y: 60 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
       transition={{ duration: 0.8 }}
-      className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center py-16 lg:py-20`}
+      className={`grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center py-10 lg:py-14`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
     >
       {/* Image Section with 3D Tilt */}
       <div className={`flex items-center justify-center ${isImageLeft ? 'lg:order-1' : 'lg:order-2'}`}>
-        <div 
+        <div
           ref={imageRef}
-          className="relative w-full max-w-lg"
+          className="relative w-full max-w-sm"
           style={{ perspective: '1000px' }}
           onMouseMove={handleMouseMove}
         >
@@ -265,7 +265,7 @@ export default function ProjectCard({
       </div>
 
       {/* Content Section */}
-      <div className={`flex flex-col gap-6 ${isImageLeft ? 'lg:order-2' : 'lg:order-1'}`}>
+      <div className={`flex flex-col gap-4 ${isImageLeft ? 'lg:order-2' : 'lg:order-1'}`}>
         {/* Coming Soon Badge */}
         {isComingSoon && (
           <motion.span
@@ -288,18 +288,18 @@ export default function ProjectCard({
           <span className="text-xs uppercase tracking-widest text-muted-foreground font-medium">Featured Project</span>
         </motion.div>
         
-        <div className="space-y-3">
-          <h3 className="font-serif text-2xl md:text-3xl lg:text-4xl font-bold text-foreground break-words leading-tight">
+        <div className="space-y-2">
+          <h3 className="font-serif text-xl md:text-2xl lg:text-3xl font-bold text-foreground break-words leading-tight">
             {title}
           </h3>
           {subtitle && (
-            <p className="font-sans text-sm md:text-base text-primary/80 font-medium">
+            <p className="font-sans text-xs md:text-sm text-primary/80 font-medium">
               {subtitle}
             </p>
           )}
         </div>
         
-        <p className="font-sans text-base md:text-lg text-muted-foreground leading-relaxed">
+        <p className="font-sans text-sm md:text-base text-muted-foreground leading-relaxed">
           {description}
         </p>
 

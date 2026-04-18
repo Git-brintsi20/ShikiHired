@@ -12,11 +12,11 @@
 export const PERSONAL_INFO = {
   name: "Salugu Harshita Bhanu",
   heroTitle: "Salugu Harshita Bhanu",
-  role: "Full-Stack Developer",
-  tagline: "Full-Stack Developer & Problem Solver",
-  bio: "I craft elegant, performant web applications with meticulous attention to detail. Specialized in modern frontend architectures and scalable backend systems that deliver measurable impact and exceptional user experiences.",
+  role: "Full-Stack Developer & Security Enthusiast",
+  tagline: "I build full-stack systems that are secure by default and useful by design",
+  bio: "I build full-stack systems that are secure by default and useful by design - from AI healthcare tools to real-time event orchestration. Every good project solves a real problem for a real person, and I approach every project as both a dev and a user.",
   location: "Jabalpur, India",
-  availability: "Available immediately for 3-month internship with flexible work hours",
+  availability: "Open to Backend, Full-Stack, AI, and SDE roles - Immediately available · 2026",
   
   // Contact Information
   email: "shiki2hustle@gmail.com",
@@ -55,25 +55,25 @@ export const PERSONAL_INFO = {
 // ============================================================================
 
 export const STATS = [
-  { 
-    label: "Years Experience", 
+  {
+    label: "Years Experience",
     value: "2+",
     description: "Building production-ready web applications"
   },
-  { 
-    label: "Projects Completed", 
-    value: "15+",
-    description: "Live SaaS platforms and full-stack applications"
-  },
-  { 
-    label: "Technologies", 
+  {
+    label: "Projects Completed",
     value: "20+",
-    description: "Modern web development tools and frameworks"
+    description: "Live SaaS platforms, AI apps, and full-stack applications"
   },
-  { 
-    label: "Performance Gains", 
-    value: "40%",
-    description: "Average optimization improvement across projects"
+  {
+    label: "Technologies Mastered",
+    value: "30+",
+    description: "Modern web dev, AI/ML, security, and DevOps tools"
+  },
+  {
+    label: "Competitive Problems",
+    value: "300+",
+    description: "LeetCode challenges solved"
   },
 ]
 
@@ -113,19 +113,17 @@ export const PROJECTS: Project[] = [
     tags: ["Next.js 14", "TypeScript", "PostgreSQL", "Redis", "WebSocket", "Bootstrap"],
     category: ["Full-Stack", "SaaS"],
     
-    // TODO: DEPLOYMENT IN PROGRESS - Uncomment when deployed
-    // demoUrl: "https://your-bug-tracker-url.vercel.app/",
+    // TODO: DEPLOYMENT IN PROGRESS - Add demo URL when deployed
+    // demoUrl: "https://bug-tracker-saas.vercel.app/",
+
+    repoUrl: "https://github.com/Git-brintsi20/bug-tracker-saas",
     
-    // TODO: Add GitHub repo URL when ready to share
-    // repoUrl: "https://github.com/Git-brintsi20/bug-tracker-saas",
-    
-    // TODO: Bug Tracker photos not available yet
-    // Once you have screenshots, add them to: /public/images/projects/bug-tracker/
-    // Example images to capture: dashboard.png, bug-detail.png, analytics.png, team-view.png
+    // Bug Tracker screenshots
     images: [
-      // "/images/projects/bug-tracker/dashboard.png",
-      // "/images/projects/bug-tracker/bug-detail.png",
-      // "/images/projects/bug-tracker/analytics.png",
+      "/images/projects/bug-tracker/Home_page.png",
+      "/images/projects/bug-tracker/IssuesPage.png",
+      "/images/projects/bug-tracker/SettingsPage.png",
+      "/images/projects/bug-tracker/TeamManagementAndPermissionsPage.png",
     ],
     
     featured: true,
@@ -279,18 +277,64 @@ export const PROJECTS: Project[] = [
       "Optimized MongoDB queries with strategic indexing",
       "Integrated third-party ML services for disease detection"
     ],
-    
+
     metrics: [
       { label: "Hackathon Rank", value: "Top 8" },
       { label: "React Components", value: "30+" },
       { label: "API Endpoints", value: "12+" }
     ],
-    
+
     techDetails: {
       frontend: ["React.js", "Bootstrap", "HTML/CSS", "JavaScript"],
       backend: ["Node.js", "Express.js", "REST API", "JWT"],
       database: ["MongoDB", "Mongoose"],
       devops: ["Vercel", "ML Model Integration"]
+    }
+  },
+
+  {
+    id: "elixa",
+    title: "ELIXA - AI Event Orchestration",
+    subtitle: "AI-powered command center for hackathons, fests, and conferences",
+    description: "MongoDB Track Winner at HackByte 4.0 (MLH). AI-powered platform that converts plain-English event goals into structured execution plans with real-time task synchronization and voice announcements.",
+    longDescription: "Revolutionary event orchestration platform that uses Generative AI to transform high-level event objectives into detailed, dependency-aware execution plans. Features role-based access codes, real-time WebSocket synchronization, multi-layer persistence architecture, Go/No-Go readiness gates, and ElevenLabs voice announcements.",
+    tags: ["Next.js 14", "TypeScript", "MongoDB", "SpacetimeDB", "Gemini AI", "ElevenLabs"],
+    category: ["Full-Stack", "AI/ML", "Event Management"],
+
+    demoUrl: "https://youtu.be/CcdWeXapRUU",
+    repoUrl: "https://github.com/Git-brintsi20/HackByte-4.0",
+
+    images: [
+      "/images/projects/Elixa/beforeloginpage.png",
+      "/images/projects/Elixa/afterloginpage.png",
+      "/images/projects/Elixa/conversation-event-planner.png",
+      "/images/projects/Elixa/event-orchestration.png",
+      "/images/projects/Elixa/EventSetup_describeUrEVent.png",
+      "/images/projects/Elixa/ActivityFeedANdVoiceAnnouncementsArena.png",
+    ],
+
+    featured: true,
+
+    achievements: [
+      "🏆 MongoDB Track Winner at HackByte 4.0 (MLH)",
+      "Best Database Schema Design and MongoDB Usage",
+      "Converts plain-English event goals into dependency-aware execution plans",
+      "3-layer persistence: SpacetimeDB WebSocket → Relay HTTP → MongoDB fallback",
+      "Role-based access codes with real-time task state synchronization",
+      "Go/No-Go readiness gates with voice announcements and live activity feed"
+    ],
+
+    metrics: [
+      { label: "Track Winner", value: "MongoDB" },
+      { label: "Competition", value: "HackByte 4.0" },
+      { label: "Tech Stack", value: "Next.js + AI" }
+    ],
+
+    techDetails: {
+      frontend: ["Next.js 14", "TypeScript 5", "Real-time UI", "Voice Integration"],
+      backend: ["Node.js", "SpacetimeDB", "Relay HTTP", "Gemini 2.5 Flash"],
+      database: ["MongoDB Atlas", "SpacetimeDB", "Real-time Sync"],
+      devops: ["ElevenLabs Voice AI", "WebSocket"]
     }
   },
 ]
@@ -311,62 +355,85 @@ export const SKILLS: SkillCategory = {
   frontend: [
     "React.js",
     "Next.js 14/15",
+    "Vue.js",
     "TypeScript",
     "JavaScript",
     "HTML5",
     "CSS3",
+    "SASS",
     "Tailwind CSS",
     "Bootstrap",
     "jQuery",
     "Responsive Design",
     "PWA Development",
     "WordPress",
+    "Figma",
   ],
-  
+
   backend: [
     "Node.js",
     "Express.js",
     "Python",
     "Django",
     "Flask",
+    "Spring Boot",
     "PHP",
     "Laravel",
     "REST API",
     "GraphQL",
     "WebSocket",
     "JWT Authentication",
+    "RabbitMQ",
   ],
-  
+
   database: [
     "PostgreSQL",
     "MongoDB",
     "MySQL",
     "Firebase",
     "Firestore",
+    "Supabase",
     "Redis",
     "Prisma ORM",
     "Database Design",
     "Query Optimization",
   ],
-  
+
   devops: [
     "Git/GitHub",
+    "GitHub Actions",
     "Docker",
     "CI/CD",
     "Vercel",
     "GCP",
+    "AWS",
+    "Google Cloud",
     "Firebase Hosting",
     "cPanel",
     "Linux",
+    "Kali Linux",
     "VS Code",
     "Postman",
   ],
-  
+
   other: [
     "C++",
+    "C",
     "Java",
-    ".NET",
-    "Shopify",
+    "Rust",
+    "TensorFlow",
+    "PyTorch",
+    "scikit-learn",
+    "Gemini API",
+    "Vertex AI",
+    "Selenium",
+    "Burp Suite",
+    "Wireshark",
+    "Metasploit",
+    "OWASP",
+    "Zoho CRM",
+    "ERPNext",
+    "Competitive Programming",
     "SEO",
     "Agile Development",
     "Chrome DevTools",
@@ -401,6 +468,19 @@ export const EXPERIENCE: Experience[] = [
       "Deployed 15+ REST API endpoints across projects",
     ],
     type: "work"
+  },
+  {
+    year: "April 2025",
+    role: "MongoDB Track Winner",
+    company: "HackByte 4.0, IIIT Jabalpur (MLH)",
+    description: "Won MongoDB track for ELIXA - AI event orchestration platform with best database schema design",
+    achievements: [
+      "Built AI-powered event orchestration command center",
+      "Designed best MongoDB schema for real-time task management",
+      "Implemented 3-layer persistence architecture with SpacetimeDB",
+      "Integrated voice announcements with ElevenLabs",
+    ],
+    type: "achievement"
   },
   {
     year: "April 2025",
@@ -442,7 +522,7 @@ export const EDUCATION: Education[] = [
     institution: "Indian Institute of Information Technology, Jabalpur",
     location: "Madhya Pradesh, India",
     period: "August 2023 - May 2027",
-    grade: "CGPA: 8.1",
+    grade: "CGPA: 8.4",
     highlights: [
       "Member of Samvaad Literary and Quizzing Society",
       "Event coordinator for 10+ literary events",
@@ -506,10 +586,22 @@ export const CERTIFICATES: Certificate[] = [
 
 export const ACHIEVEMENTS = [
   {
-    title: "HackByte 3.0 - Top 8 Finalist",
-    description: "Ranked among top 8 teams out of 126 participating teams",
+    title: "HackByte 4.0 - MongoDB Track Winner",
+    description: "Won MongoDB track for best database schema design with ELIXA event orchestration platform",
     year: "2025",
     icon: "🏆"
+  },
+  {
+    title: "HackByte 3.0 - Top 8 Finalist",
+    description: "Ranked among top 8 teams out of 126 participating teams for PlantZ AI application",
+    year: "2025",
+    icon: "🥈"
+  },
+  {
+    title: "Google Cybersecurity Professional Certificate",
+    description: "Coursera certification in cybersecurity fundamentals and practices",
+    year: "2024",
+    icon: "🔐"
   },
   {
     title: "95+ Lighthouse Score",
@@ -524,8 +616,8 @@ export const ACHIEVEMENTS = [
     icon: "🚀"
   },
   {
-    title: "15+ Production Projects",
-    description: "Successfully deployed and maintained multiple live web applications",
+    title: "300+ LeetCode Problems",
+    description: "Consistent competitive programming practice with medium-hard problem solving",
     year: "2024",
     icon: "💻"
   },

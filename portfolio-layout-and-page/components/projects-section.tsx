@@ -18,7 +18,7 @@ export default function ProjectsSection() {
   })
 
   return (
-    <section ref={sectionRef} id="projects" className="relative w-full bg-background py-20 md:py-28 overflow-hidden">
+    <section ref={sectionRef} id="projects" className="relative w-full bg-background py-16 md:py-20 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -52,7 +52,7 @@ export default function ProjectsSection() {
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="space-y-12 lg:space-y-16">
+        <div className="space-y-8 lg:space-y-12">
           {sortedProjects.map((project, index) => (
             <div key={project.id}>
               <ProjectCard

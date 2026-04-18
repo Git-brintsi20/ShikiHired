@@ -151,7 +151,7 @@ function SkillCategory({ title, skills, icon: Icon, gradient, delay, index }: Sk
         initial={{ opacity: 0, x: -20 }}
         animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
         transition={{ duration: 0.5, delay: delay + 0.1 }}
-        className="flex items-center gap-4 mb-8"
+        className="flex items-center gap-4 mb-6"
       >
         <div className={`p-3 rounded-xl bg-gradient-to-br ${gradient} text-white shadow-lg`}>
           <Icon className="w-6 h-6" />
@@ -186,7 +186,7 @@ export default function TechStackSection() {
   ]
 
   return (
-    <section ref={sectionRef} id="tech-stack" className="relative w-full py-24 md:py-32 overflow-hidden">
+    <section ref={sectionRef} id="tech-stack" className="relative w-full py-16 md:py-24 overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(65,105,225,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(65,105,225,0.02)_1px,transparent_1px)] bg-[size:40px_40px]" />
@@ -231,7 +231,7 @@ export default function TechStackSection() {
         </motion.div>
 
         {/* Tech Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {categories.map((cat, index) => (
             <SkillCategory
               key={cat.title}

@@ -231,7 +231,7 @@ export default function StatsSection() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
   
   return (
-    <section ref={sectionRef} className="relative w-full py-24 md:py-32 overflow-hidden">
+    <section ref={sectionRef} className="relative w-full py-16 md:py-24 overflow-hidden">
       {/* Background with grid pattern */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(65,105,225,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(65,105,225,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
@@ -276,7 +276,7 @@ export default function StatsSection() {
         </motion.div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {STATS.map((stat, index) => (
             <StatCard
               key={stat.label}
