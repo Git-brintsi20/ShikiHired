@@ -14,8 +14,9 @@ export default function StickyHeader() {
 
   const navLinks = [
     { label: 'Projects', href: '#projects' },
-    { label: 'About', href: '#about' },
     { label: 'Skills', href: '#tech-stack' },
+    { label: 'Coding Profiles', href: '#coding-profiles' },
+    { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },
   ]
 

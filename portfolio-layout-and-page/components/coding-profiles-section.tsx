@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useRef, useState, useEffect } from 'react'
 import { motion, useInView, useSpring, useTransform } from 'framer-motion'
@@ -6,7 +6,7 @@ import { ExternalLink, Code2, Trophy, Award, Target, Flame, Zap, TrendingUp, Ref
 import Link from 'next/link'
 import { PERSONAL_INFO } from '@/lib/data'
 
-// â”€â”€â”€ Types â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Types ────────────────────────────────────────────────────────────────────
 
 interface LeetCodeData {
   solved: number
@@ -25,7 +25,7 @@ interface CodeforcesData {
   fallback?: boolean
 }
 
-// â”€â”€â”€ Live badge â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Live badge ───────────────────────────────────────────────────────────────
 
 function LiveBadge({ isFallback }: { isFallback: boolean }) {
   return (
@@ -40,7 +40,7 @@ function capitalize(s: string) {
   return s.charAt(0).toUpperCase() + s.slice(1)
 }
 
-// â”€â”€â”€ Animated counter â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Animated counter ──────────────────────────────────────────────────────────
 
 // Animated counter
 function AnimatedNumber({ value, suffix = '' }: { value: number; suffix?: string }) {
@@ -49,34 +49,34 @@ function AnimatedNumber({ value, suffix = '' }: { value: number; suffix?: string
   const spring = useSpring(0, { stiffness: 50, damping: 20 })
   const display = useTransform(spring, (v) => Math.round(v))
   const [current, setCurrent] = useState(0)
-  
+
   useEffect(() => {
     if (isInView) spring.set(value)
   }, [isInView, value, spring])
-  
+
   useEffect(() => {
     return display.on('change', (v) => setCurrent(v))
   }, [display])
-  
+
   return <span ref={ref}>{current}{suffix}</span>
 }
 
 // Circular progress ring
-function ProgressRing({ progress, size = 100, stroke = 8, color }: { 
-  progress: number; size?: number; stroke?: number; color: string 
+function ProgressRing({ progress, size = 100, stroke = 8, color }: {
+  progress: number; size?: number; stroke?: number; color: string
 }) {
   const ref = useRef<SVGSVGElement>(null)
   const isInView = useInView(ref, { once: true })
   const radius = (size - stroke) / 2
   const circumference = radius * 2 * Math.PI
-  
+
   const progressSpring = useSpring(0, { stiffness: 30, damping: 20 })
   const strokeDashoffset = useTransform(progressSpring, (v) => circumference - (v / 100) * circumference)
-  
+
   useEffect(() => {
     if (isInView) progressSpring.set(progress)
   }, [isInView, progress, progressSpring])
-  
+
   return (
     <svg ref={ref} width={size} height={size} className="rotate-[-90deg]">
       <circle
@@ -106,7 +106,7 @@ export default function CodingProfilesSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
-  // â”€â”€ Live data state (starts from hardcoded fallbacks) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Live data state (starts from hardcoded fallbacks) ─────────────────────────
   const [lc, setLc] = useState<LeetCodeData>({
     solved: 322, activeDays: 176, rating: 1925, topPercentage: 3.78, contests: 22, fallback: true,
   })
@@ -160,15 +160,15 @@ export default function CodingProfilesSection() {
       {/* Animated background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(65,105,225,0.03),transparent_50%)]" />
-        <motion.div 
+        <motion.div
           animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 10, repeat: Infinity }}
-          className="absolute top-1/4 -left-40 w-[500px] h-[500px] bg-[#FFA116]/10 rounded-full blur-[120px]" 
+          className="absolute top-1/4 -left-40 w-[500px] h-[500px] bg-[#FFA116]/10 rounded-full blur-[120px]"
         />
-        <motion.div 
+        <motion.div
           animate={{ scale: [1.3, 1, 1.3], opacity: [0.5, 0.3, 0.5] }}
           transition={{ duration: 12, repeat: Infinity }}
-          className="absolute bottom-1/4 -right-40 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" 
+          className="absolute bottom-1/4 -right-40 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]"
         />
       </div>
 
@@ -178,7 +178,7 @@ export default function CodingProfilesSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
           <motion.span
             initial={{ opacity: 0, y: 10 }}
@@ -188,7 +188,7 @@ export default function CodingProfilesSection() {
             <Zap className="w-4 h-4" />
             Competitive Programming
           </motion.span>
-          
+
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Coding{' '}
             <span className="bg-gradient-to-r from-[#FFA116] via-primary to-secondary bg-clip-text text-transparent">
@@ -196,72 +196,94 @@ export default function CodingProfilesSection() {
             </span>
           </h2>
           <p className="font-sans text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Where algorithms meet passionâ€”track my competitive programming journey
+            Where algorithms meet passion—track my competitive programming journey
           </p>
         </motion.div>
 
-        {/* Featured Profile - LeetCode */}
+        {/* Horizontal Strip - 3 Platforms in 1 Row (CodeChef 25% | LeetCode 50% | Codeforces 25%) */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10"
         >
-          <div className="group relative bg-card/80 backdrop-blur-sm border border-border/50 rounded-3xl overflow-hidden max-w-2xl mx-auto shadow-xl">
+          {/* CodeChef - 1 column (25%) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            whileHover={{ y: -4 }}
+            className="group relative bg-card/60 backdrop-blur-sm border border-border/50 rounded-xl overflow-hidden"
+          >
+            <Link href="https://www.codechef.com/users/shiki_20" target="_blank" rel="noopener noreferrer"
+              className="absolute inset-0 z-10" aria-label="View CodeChef profile" />
+            <div className="h-16 bg-gradient-to-r from-[#5B4638] to-[#3E2723] relative">
+              <div className="absolute inset-0 bg-black/20" />
+              <div className="absolute bottom-2 left-3 right-3 flex items-center justify-between">
+                <h3 className="font-serif text-sm font-bold text-white">CodeChef</h3>
+                <div className="p-1.5 rounded-lg bg-white/20 backdrop-blur-sm">
+                  <Award className="w-4 h-4 text-white" />
+                </div>
+              </div>
+            </div>
+            <div className="p-3">
+              <p className="font-sans text-xs text-muted-foreground mb-2 text-center">3⭐ Rating</p>
+              <div className="space-y-2">
+                <div>
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-xs text-muted-foreground">Rating</span>
+                    <span className="font-mono text-sm font-bold text-foreground">2100</span>
+                  </div>
+                  <div className="h-1 bg-border/30 rounded-full overflow-hidden">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={isInView ? { width: '60%' } : { width: 0 }}
+                      transition={{ duration: 1, delay: 1.1 }}
+                      className="h-full rounded-full bg-[#8B5C38]"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* LeetCode - 2 columns (50%) - Featured */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="group relative bg-card/80 backdrop-blur-sm border border-border/50 rounded-xl overflow-hidden md:col-span-2"
+          >
             <motion.div
-              className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               style={{ background: 'linear-gradient(135deg, #FFA11620, transparent, #FFA11620)' }}
             />
 
             {/* Gradient Header */}
-            <div className="relative h-24 bg-gradient-to-r from-[#FFA116] to-[#F9A825]">
-              <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between">
+            <div className="relative h-16 bg-gradient-to-r from-[#FFA116] to-[#F9A825]">
+              <div className="absolute inset-0 bg-black/20" />
+              <div className="absolute bottom-0 left-0 right-0 p-3 flex items-end justify-between">
                 <div>
-                  <span className="text-white/60 text-xs uppercase tracking-widest font-medium">Featured Platform</span>
-                  <h3 className="font-serif text-2xl md:text-3xl font-bold text-white">LeetCode</h3>
-                  <p className="text-white/80 font-mono text-xs">@hac_brintsi20</p>
+                  <h3 className="font-serif text-lg md:text-xl font-bold text-white">LeetCode</h3>
+                  <p className="text-white/60 font-mono text-xs">@hac_brintsi20</p>
                 </div>
-                <div className="flex flex-col items-end gap-1">
+                <div className="flex items-center gap-2">
                   <LiveBadge isFallback={!!lc.fallback} />
-                  <motion.div whileHover={{ rotate: 10, scale: 1.1 }} className="p-3 rounded-2xl bg-white/20 backdrop-blur-md">
-                    <Code2 className="w-8 h-8 text-white" />
+                  <motion.div whileHover={{ rotate: 10, scale: 1.1 }} className="p-2 rounded-lg bg-white/20 backdrop-blur-md">
+                    <Code2 className="w-5 h-5 text-white" />
                   </motion.div>
                 </div>
               </div>
             </div>
 
             {/* Content */}
-            <div className="p-6">
-              {/* Activity chips */}
-              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mb-6">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                  transition={{ delay: 0.4 }}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 text-accent text-xs"
-                >
-                  <Flame className="w-3 h-3" />
-                  <span className="font-mono text-xs"><AnimatedNumber value={lc.activeDays} /> days</span>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                  transition={{ delay: 0.5 }}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/10 text-secondary text-xs"
-                >
-                  <Trophy className="w-3 h-3" />
-                  <span className="font-mono text-xs"><AnimatedNumber value={lc.contests} /> contests</span>
-                </motion.div>
-              </div>
-
+            <div className="p-4">
               {/* Stats with progress rings */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+              <div className="grid grid-cols-3 gap-2 mb-3">
                 {([
-                  { label: 'Problems Solved', value: lc.solved,          suffix: '+', icon: Target,     progress: lcSolvedProgress },
-                  { label: 'Contest Rating',   value: lc.rating,          suffix: '',  icon: Trophy,     progress: lcRatingProgress },
-                  { label: 'Top',              value: lc.topPercentage,   suffix: '%', icon: TrendingUp, progress: lcTopProgress },
+                  { label: 'Problems', value: lc.solved, suffix: '+', icon: Target, progress: lcSolvedProgress },
+                  { label: 'Rating', value: lc.rating, suffix: '', icon: Trophy, progress: lcRatingProgress },
+                  { label: 'Top', value: lc.topPercentage, suffix: '%', icon: TrendingUp, progress: lcTopProgress },
                 ] as const).map((stat, index) => {
                   const StatIcon = stat.icon
                   return (
@@ -272,13 +294,13 @@ export default function CodingProfilesSection() {
                       transition={{ delay: 0.3 + index * 0.1 }}
                       className="relative flex flex-col items-center"
                     >
-                      <div className="relative mb-2">
-                        <ProgressRing progress={stat.progress} size={80} stroke={5} color="#FFA116" />
+                      <div className="relative mb-1">
+                        <ProgressRing progress={stat.progress} size={50} stroke={3} color="#FFA116" />
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <StatIcon className="w-5 h-5" style={{ color: '#FFA116' }} />
+                          <StatIcon className="w-3 h-3" style={{ color: '#FFA116' }} />
                         </div>
                       </div>
-                      <p className="font-mono text-xl md:text-2xl font-bold text-foreground">
+                      <p className="font-mono text-xs md:text-sm font-bold text-foreground">
                         <AnimatedNumber value={stat.value} suffix={stat.suffix} />
                       </p>
                       <p className="text-xs text-muted-foreground text-center">{stat.label}</p>
@@ -292,92 +314,55 @@ export default function CodingProfilesSection() {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="relative w-full py-3 px-6 rounded-xl font-medium overflow-hidden group/btn"
+                  className="relative w-full py-2 px-4 rounded-lg font-medium overflow-hidden group/btn text-xs"
                 >
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-[#FFA116] to-[#F9A825]"
                     animate={{ opacity: [0.8, 1, 0.8] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   />
-                  <span className="relative flex items-center justify-center gap-2 text-white text-sm">
-                    View LeetCode Profile
-                    <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  <span className="relative flex items-center justify-center gap-1.5 text-white">
+                    View Profile
+                    <ExternalLink className="w-3 h-3 group-hover/btn:translate-x-0.5 transition-transform" />
                   </span>
                 </motion.button>
               </Link>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        {/* Other platforms */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mb-10"
-        >
-          <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
-            <RefreshCw className="w-3 h-3" />
-            LeetCode &amp; Codeforces stats refresh every 12 hours from live APIs
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl mx-auto">
-
-          {/* â”€â”€ Codeforces (live) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+          {/* Codeforces - 1 column (25%) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            whileHover={{ y: -6 }}
-            className="group relative bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl overflow-hidden"
+            whileHover={{ y: -4 }}
+            className="group relative bg-card/60 backdrop-blur-sm border border-border/50 rounded-xl overflow-hidden"
           >
             <Link href="https://codeforces.com/profile/shiki_20" target="_blank" rel="noopener noreferrer"
               className="absolute inset-0 z-10" aria-label="View Codeforces profile" />
-            <div className="h-20 bg-gradient-to-r from-[#1E88E5] to-[#0D47A1] relative">
+            <div className="h-16 bg-gradient-to-r from-[#1E88E5] to-[#0D47A1] relative">
               <div className="absolute inset-0 bg-black/20" />
-              <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between">
-                <div>
-                  <h3 className="font-serif text-xl font-bold text-white">Codeforces</h3>
-                </div>
-                <div className="flex flex-col items-end gap-1">
-                  <LiveBadge isFallback={!!cf.fallback} />
-                  <div className="p-2.5 rounded-xl bg-white/20 backdrop-blur-sm">
-                    <Trophy className="w-6 h-6 text-white" />
-                  </div>
+              <div className="absolute bottom-2 left-3 right-3 flex items-center justify-between">
+                <h3 className="font-serif text-sm font-bold text-white">Codeforces</h3>
+                <div className="p-1.5 rounded-lg bg-white/20 backdrop-blur-sm">
+                  <Trophy className="w-4 h-4 text-white" />
                 </div>
               </div>
             </div>
-            <div className="p-5">
-              <p className="font-sans text-xs text-muted-foreground mb-4 text-center">
-                {capitalize(cf.rank)} â€¢ Max: {capitalize(cf.maxRank)}
-              </p>
-              <div className="space-y-4">
+            <div className="p-3">
+              <p className="font-sans text-xs text-muted-foreground mb-2 text-center">{capitalize(cf.rank)}</p>
+              <div className="space-y-2">
                 <div>
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-xs text-muted-foreground">Rating</span>
-                    <span className="font-mono text-lg font-bold text-foreground">
+                    <span className="font-mono text-sm font-bold text-foreground">
                       <AnimatedNumber value={cf.rating} />
                     </span>
                   </div>
-                  <div className="h-1.5 bg-border/30 rounded-full overflow-hidden">
+                  <div className="h-1 bg-border/30 rounded-full overflow-hidden">
                     <motion.div
                       initial={{ width: 0 }}
                       animate={isInView ? { width: `${cfRatingProgress}%` } : { width: 0 }}
-                      transition={{ duration: 1, delay: 0.8 }}
-                      className="h-full rounded-full bg-[#1E88E5]"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs text-muted-foreground">Rank</span>
-                    <span className="font-mono text-lg font-bold text-foreground">{capitalize(cf.rank)}</span>
-                  </div>
-                  <div className="h-1.5 bg-border/30 rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={isInView ? { width: '40%' } : { width: 0 }}
                       transition={{ duration: 1, delay: 0.9 }}
                       className="h-full rounded-full bg-[#1E88E5]"
                     />
@@ -386,59 +371,20 @@ export default function CodingProfilesSection() {
               </div>
             </div>
           </motion.div>
+        </motion.div>
 
-          {/* â”€â”€ CodeChef (static â€” no public API) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            whileHover={{ y: -6 }}
-            className="group relative bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl overflow-hidden"
-          >
-            <Link href="https://www.codechef.com/users/shiki_20" target="_blank" rel="noopener noreferrer"
-              className="absolute inset-0 z-10" aria-label="View CodeChef profile" />
-            <div className="h-20 bg-gradient-to-r from-[#5B4638] to-[#3E2723] relative">
-              <div className="absolute inset-0 bg-black/20" />
-              <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between">
-                <div>
-                  <h3 className="font-serif text-xl font-bold text-white">CodeChef</h3>
-                </div>
-                <div className="p-2.5 rounded-xl bg-white/20 backdrop-blur-sm">
-                  <Award className="w-6 h-6 text-white" />
-                </div>
-              </div>
-            </div>
-            <div className="p-5">
-              <p className="font-sans text-xs text-muted-foreground mb-4 text-center">
-                Div 2 â€¢ Global Rank #6062
-              </p>
-              <div className="space-y-4">
-                {[
-                  { label: 'Rating', value: 1772, suffix: '',  progress: 65 },
-                  { label: 'Stars',  value: 3,    suffix: 'â˜…', progress: 60 },
-                ].map((stat, index) => (
-                  <div key={stat.label}>
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-xs text-muted-foreground">{stat.label}</span>
-                      <span className="font-mono text-lg font-bold text-foreground">
-                        <AnimatedNumber value={stat.value} suffix={stat.suffix} />
-                      </span>
-                    </div>
-                    <div className="h-1.5 bg-border/30 rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={isInView ? { width: `${stat.progress}%` } : { width: 0 }}
-                        transition={{ duration: 1, delay: 0.8 + index * 0.1 }}
-                        className="h-full rounded-full bg-[#8B5C38]"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-        </div>
+        {/* API refresh info */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="text-center"
+        >
+          <p className="text-xs text-muted-foreground flex items-center justify-center gap-2">
+            <RefreshCw className="w-3 h-3" />
+            Stats refresh every 12 hours from live APIs
+          </p>
+        </motion.div>
       </div>
     </section>
   )

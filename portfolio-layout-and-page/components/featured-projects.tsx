@@ -103,9 +103,9 @@ export default function FeaturedProjects() {
                     initial={{ scale: 0, rotate: -45 }}
                     animate={isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -45 }}
                     transition={{ delay: 0.3 }}
-                    className="absolute top-4 right-4 z-20 px-4 py-2 rounded-full bg-gradient-to-r from-orange-500 to-amber-400 text-white text-xs font-bold flex items-center gap-2"
+                    className="absolute top-3 right-3 z-20 px-3 py-1.5 rounded-full bg-gradient-to-r from-orange-500 to-amber-400 text-white text-xs font-bold flex items-center gap-1.5 whitespace-nowrap"
                   >
-                    <Trophy className="w-4 h-4" />
+                    <Trophy className="w-3.5 h-3.5 flex-shrink-0" />
                     MongoDB Winner
                   </motion.div>
                 )}
@@ -115,31 +115,31 @@ export default function FeaturedProjects() {
                   className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 />
 
-                <div className="p-6 h-full flex flex-col gap-4">
+                <div className="p-6 pr-32 h-full flex flex-col gap-5">
                   {/* Title & Category */}
                   <div>
-                    <h3 className="font-serif text-xl font-bold text-foreground mb-2">
+                    <h3 className="font-serif text-lg font-bold text-foreground mb-1">
                       {project.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-xs text-muted-foreground">
                       {project.subtitle}
                     </p>
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm text-foreground/70 leading-relaxed flex-grow">
+                  <p className="text-xs text-foreground/70 leading-relaxed flex-grow">
                     {project.description}
                   </p>
 
                   {/* Key Metrics */}
-                  <div className="space-y-2">
+                  <div className="space-y-1.5">
                     <p className="text-xs font-semibold text-primary uppercase tracking-wider">
                       Key Achievements
                     </p>
-                    <div className="space-y-1.5">
+                    <div className="space-y-1">
                       {project.achievements?.slice(0, 3).map((achievement, idx) => (
                         <div key={idx} className="flex items-start gap-2">
-                          <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0" />
+                          <div className="w-1 h-1 rounded-full bg-accent mt-1.5 flex-shrink-0" />
                           <p className="text-xs text-muted-foreground">{achievement}</p>
                         </div>
                       ))}
@@ -147,11 +147,11 @@ export default function FeaturedProjects() {
                   </div>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mt-4">
+                  <div className="flex flex-wrap gap-1.5 mt-2">
                     {project.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium"
+                        className="px-2.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium"
                       >
                         {tag}
                       </span>
@@ -159,7 +159,7 @@ export default function FeaturedProjects() {
                   </div>
 
                   {/* Links */}
-                  <div className="flex gap-3 mt-4 pt-4 border-t border-border/30">
+                  <div className="flex gap-2 mt-3 pt-3 border-t border-border/30">
                     {project.demoUrl && (
                       <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                         <motion.button

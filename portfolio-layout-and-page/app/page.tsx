@@ -23,14 +23,14 @@ export default function Home() {
       {/* Coding Profiles Section */}
       <CodingProfilesSection />
 
+      {/* Complete Projects Gallery */}
+      <ProjectsSection />
+
       {/* About / Beyond The Code - Redesigned Layout */}
       <AboutSection />
 
       {/* Why You? - Value Proposition */}
       <WhyYouSection />
-
-      {/* Complete Projects Gallery */}
-      <ProjectsSection />
 
       {/* Achievements & Experience Section */}
       <AchievementsSection />
