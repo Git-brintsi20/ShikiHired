@@ -1,35 +1,43 @@
 import Hero from '@/components/hero'
-import StatsSection from '@/components/stats-section'
+import StickyHeader from '@/components/sticky-header'
+import FeaturedProjects from '@/components/featured-projects'
 import AboutSection from '@/components/about-section'
+import WhyYouSection from '@/components/why-you-section'
 import ProjectsSection from '@/components/projects-section'
+import AchievementsSection from '@/components/achievements-section'
 import TechStackSection from '@/components/tech-stack-section'
 import CodingProfilesSection from '@/components/coding-profiles-section'
-import AchievementsSection from '@/components/achievements-section'
 import ContactSection from '@/components/contact-section'
 
 export default function Home() {
   return (
     <div className="w-full bg-background">
+      {/* Sticky Navigation Header */}
+      <StickyHeader />
+
       {/* Hero Section */}
       <Hero />
 
-      {/* Stats Section */}
-      <StatsSection />
+      {/* Featured Projects - Top 3 Highlighted */}
+      <FeaturedProjects />
 
-      {/* About Section */}
+      {/* About / Beyond The Code - Redesigned Layout */}
       <AboutSection />
 
-      {/* Featured Projects Section */}
+      {/* Why You? - Value Proposition */}
+      <WhyYouSection />
+
+      {/* Complete Projects Gallery */}
       <ProjectsSection />
+
+      {/* Achievements & Experience Section */}
+      <AchievementsSection />
 
       {/* Tech Stack Section */}
       <TechStackSection />
 
       {/* Coding Profiles Section */}
       <CodingProfilesSection />
-
-      {/* Achievements & Experience Section */}
-      <AchievementsSection />
 
       {/* Contact CTA Section */}
       <ContactSection />

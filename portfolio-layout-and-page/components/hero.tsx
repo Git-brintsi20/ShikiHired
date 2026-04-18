@@ -9,50 +9,25 @@ import { PERSONAL_INFO } from '@/lib/data'
 import { useTypewriter, use3DTilt } from '@/hooks/use-animations'
 import ParticleField from './particle-field'
 
-// Floating code snippets for background
-const codeSnippets = [
-  'const build = () => {}',
-  'async function deploy()',
-  'npm run dev',
-  'git push origin main',
-  '<Component />',
-  'useState()',
-  'useEffect(() => {})',
-]
+// Floating code snippets for background - REMOVED FOR CLEANER HERO
+// const codeSnippets = [
+//   'const build = () => {}',
+//   ...
+// ]
 
-function FloatingCode({ snippet, delay }: { snippet: string; delay: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: -100 }}
-      animate={{ 
-        opacity: [0, 0.3, 0.3, 0],
-        x: ['-10%', '110%'],
-      }}
-      transition={{
-        duration: 15,
-        delay,
-        repeat: Infinity,
-        ease: 'linear',
-      }}
-      className="absolute font-mono text-xs text-primary/20 whitespace-nowrap pointer-events-none"
-      style={{ top: `${Math.random() * 80 + 10}%` }}
-    >
-      {snippet}
-    </motion.div>
-  )
-}
+// REMOVED: FloatingCode component - no longer needed
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
   const { tiltStyle, handleMouseMove, handleMouseLeave } = use3DTilt(15)
-  
-  const roles = ['Full-Stack Developer', 'Problem Solver', 'UI/UX Enthusiast', 'Open Source Contributor']
-  const typedRole = useTypewriter(roles, 80, 40, 2000)
-  
+
+  // SIMPLIFIED: Replaced typewriter with static value
+  const role = 'Full-Stack Developer | 5 Shipped Products | 2 Hackathon Wins'
+
   // Use window scroll progress instead of target ref to avoid hydration issues
   const { scrollYProgress } = useScroll()
-  
+
   const y = useTransform(scrollYProgress, [0, 0.3], ['0%', '50%'])
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
 
@@ -76,8 +51,8 @@ export default function Hero() {
     >
       {/* Particle Background */}
       <ParticleField />
-      
-      {/* Animated Gradient Orbs */}
+
+      {/* Animated Gradient Orbs - SIMPLIFIED */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <motion.div 
           animate={{ 
@@ -104,13 +79,6 @@ export default function Hero() {
           transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[150px]" 
         />
-      </div>
-
-      {/* Floating Code Snippets */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {codeSnippets.map((snippet, i) => (
-          <FloatingCode key={i} snippet={snippet} delay={i * 2} />
-        ))}
       </div>
 
       {/* Grid Pattern */}
@@ -167,17 +135,16 @@ export default function Hero() {
               </motion.h1>
             </div>
 
-            {/* Typewriter Role */}
+            {/* Role / Tagline - SIMPLIFIED */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="h-10 flex items-center justify-center lg:justify-start gap-2"
+              className="flex items-center justify-center lg:justify-start gap-2"
             >
               <Terminal className="w-5 h-5 text-primary" />
               <span className="font-mono text-lg md:text-xl text-foreground/80">
-                {typedRole}
-                <span className="animate-pulse text-primary">|</span>
+                {role}
               </span>
             </motion.div>
 
