@@ -72,7 +72,7 @@ export const STATS = [
   },
   {
     label: "Competitive Problems",
-    value: "300+",
+    value: "322+",
     description: "LeetCode challenges solved"
   },
 ]

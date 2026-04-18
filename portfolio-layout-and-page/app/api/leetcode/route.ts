@@ -40,17 +40,29 @@ export async function GET() {
         'Content-Type': 'application/json',
         'Referer': 'https://leetcode.com',
       },
-      body: JSON.stringify({ query: STATS_QUERY, variables: { username: LEETCODE_USERNAME } }),
+      body: JSON.stringify({
+        query: STATS_QUERY,
+        variables: { username: LEETCODE_USERNAME }
+      }),
       next: { revalidate: 43200 },
     })
 
-    if (!res.ok) throw new Error(`LeetCode API error: ${res.status}`)
+    if (!res.ok) {
+      throw new Error(`LeetCode API error: ${res.status}`)
+    }
 
     const json = await res.json()
+
+    if (json.errors) {
+      throw new Error(`LeetCode GraphQL error: ${JSON.stringify(json.errors)}`)
+    }
+
     const user = json?.data?.matchedUser
     const contest = json?.data?.userContestRanking
 
-    if (!user) throw new Error('User not found')
+    if (!user) {
+      throw new Error('User not found in LeetCode API response')
+    }
 
     const solved = user.submitStats.acSubmissionNum.find((x: { difficulty: string }) => x.difficulty === 'All')?.count ?? 0
     const activeDays = user.userCalendar?.activeDays ?? 0
@@ -64,13 +76,24 @@ export async function GET() {
       rating,
       topPercentage: topPct,
       contests,
+      timestamp: new Date().toISOString(),
     })
   } catch (err) {
     console.error('LeetCode fetch failed:', err)
-    // Return fallback values so the UI always works
+    // Return fallback with current timestamp
     return NextResponse.json(
-      { solved: 275, activeDays: 142, rating: 1842, topPercentage: 6.17, contests: 14, fallback: true },
+      {
+        solved: 322,
+        activeDays: 142,
+        rating: 1842,
+        topPercentage: 6.17,
+        contests: 14,
+        fallback: true,
+        timestamp: new Date().toISOString(),
+        error: String(err)
+      },
       { status: 200 }
     )
   }
 }
+

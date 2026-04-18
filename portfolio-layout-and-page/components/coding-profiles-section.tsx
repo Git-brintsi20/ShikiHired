@@ -115,8 +115,39 @@ export default function CodingProfilesSection() {
   })
 
   useEffect(() => {
-    fetch('/api/leetcode').then(r => r.json()).then((d: LeetCodeData) => setLc(d)).catch(console.error)
-    fetch('/api/codeforces').then(r => r.json()).then((d: CodeforcesData) => setCf(d)).catch(console.error)
+    // Retry logic for API calls
+    const fetchWithRetry = async (url: string, maxRetries = 3) => {
+      for (let i = 0; i < maxRetries; i++) {
+        try {
+          const res = await fetch(url)
+          if (!res.ok) throw new Error(`HTTP ${res.status}`)
+          return await res.json()
+        } catch (err) {
+          if (i === maxRetries - 1) throw err
+          await new Promise(r => setTimeout(r, 1000 * (i + 1)))
+        }
+      }
+    }
+
+    // Fetch LeetCode data
+    fetchWithRetry('/api/leetcode')
+      .then((d: LeetCodeData) => {
+        console.log('LeetCode data updated:', d)
+        setLc(d)
+      })
+      .catch(err => {
+        console.error('LeetCode fetch failed after retries:', err)
+      })
+
+    // Fetch Codeforces data
+    fetchWithRetry('/api/codeforces')
+      .then((d: CodeforcesData) => {
+        console.log('Codeforces data updated:', d)
+        setCf(d)
+      })
+      .catch(err => {
+        console.error('Codeforces fetch failed after retries:', err)
+      })
   }, [])
 
   const lcSolvedProgress = Math.min(Math.round((lc.solved / 500) * 100), 99)
