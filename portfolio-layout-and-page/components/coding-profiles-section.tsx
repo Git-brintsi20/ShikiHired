@@ -108,7 +108,7 @@ export default function CodingProfilesSection() {
 
   // â”€â”€ Live data state (starts from hardcoded fallbacks) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const [lc, setLc] = useState<LeetCodeData>({
-    solved: 275, activeDays: 142, rating: 1842, topPercentage: 6.17, contests: 14, fallback: true,
+    solved: 322, activeDays: 176, rating: 1925, topPercentage: 3.78, contests: 22, fallback: true,
   })
   const [cf, setCf] = useState<CodeforcesData>({
     rating: 1290, maxRating: 1290, rank: 'pupil', maxRank: 'pupil', fallback: true,

@@ -16,8 +16,7 @@ const STATS_QUERY = `
         ranking
       }
       userCalendar(year: 0) {
-        activeDays
-        submissionCalendar
+        totalActiveDays
       }
     }
     userContestRanking(username: $username) {
@@ -65,7 +64,7 @@ export async function GET() {
     }
 
     const solved = user.submitStats.acSubmissionNum.find((x: { difficulty: string }) => x.difficulty === 'All')?.count ?? 0
-    const activeDays = user.userCalendar?.activeDays ?? 0
+    const activeDays = user.userCalendar?.totalActiveDays ?? 0
     const rating = Math.round(contest?.rating ?? 0)
     const topPct = parseFloat((contest?.topPercentage ?? 0).toFixed(2))
     const contests = contest?.attendedContestsCount ?? 0
@@ -84,10 +83,10 @@ export async function GET() {
     return NextResponse.json(
       {
         solved: 322,
-        activeDays: 142,
-        rating: 1842,
-        topPercentage: 6.17,
-        contests: 14,
+        activeDays: 176,
+        rating: 1925,
+        topPercentage: 3.78,
+        contests: 22,
         fallback: true,
         timestamp: new Date().toISOString(),
         error: String(err)
