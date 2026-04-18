@@ -684,6 +684,50 @@ export const EXTRACURRICULARS: Extracurricular[] = [
 ]
 
 // ============================================================================
+// TESTIMONIALS
+// ============================================================================
+
+export interface Testimonial {
+  id: string
+  quote: string
+  author: string
+  role: string
+  company?: string
+  context?: string
+  rating?: number
+}
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    id: 'testimonial-1',
+    quote: "Harshita ships production-ready code while others talk. Won MongoDB Track not just for features but architecture. End-to-end ownership from LLM integration to database design.",
+    author: "Hackathon Mentor",
+    role: "Event Organizer",
+    company: "HackByte",
+    context: "ELIXA Project",
+    rating: 5
+  },
+  {
+    id: 'testimonial-2',
+    quote: "Full-stack expertise combined with reliability. Handles pressure gracefully and delivers under tight deadlines. Great communication and collaborative spirit.",
+    author: "Team Collaborator",
+    role: "Co-Developer",
+    company: "Hackathon Team",
+    context: "Bug Tracker Project",
+    rating: 5
+  },
+  {
+    id: 'testimonial-3',
+    quote: "Combines deep technical knowledge with product thinking. Cares about user experience and builds systems that are both robust and elegant. A joy to work with.",
+    author: "Project Lead",
+    role: "Mentor",
+    company: "Open Source",
+    context: "HealthyME PWA",
+    rating: 5
+  }
+]
+
+// ============================================================================
 // EXPORT ALL
 // ============================================================================
 
@@ -697,4 +741,5 @@ export default {
   CERTIFICATES,
   ACHIEVEMENTS,
   EXTRACURRICULARS,
+  TESTIMONIALS,
 }
