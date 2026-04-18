@@ -27,13 +27,31 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Developer Portfolio | Full-Stack Developer',
-  description: 'Professional full-stack developer portfolio showcasing elegant, performant web applications and technical expertise.',
-  generator: 'v0.app',
+  title: 'Harshita Bhanu | Full-Stack Developer & 2x Hackathon Winner',
+  description: 'Full-stack developer who ships real products. 5 production apps, 2 hackathon wins, 40% performance improvements. Specializing in Node.js, React, PostgreSQL, and security.',
+  keywords: 'full-stack developer, web developer, react developer, node.js, typescript, bug tracker, saas, portfolio',
+  authors: [{ name: 'Salugu Harshita Bhanu', url: 'https://saluguharshitabhanu.vercel.app' }],
+  creator: 'Salugu Harshita Bhanu',
+  generator: 'Next.js',
   openGraph: {
-    title: 'Developer Portfolio',
-    description: 'Full-stack developer crafting elegant digital solutions',
+    title: 'Harshita Bhanu | Full-Stack Developer & Product Builder',
+    description: '5 shipped products, 2 hackathon wins, MongoDB Track Winner. Full-stack expert crafting production-ready applications.',
     type: 'website',
+    url: 'https://saluguharshitabhanu.vercel.app',
+    siteName: 'Harshita Bhanu',
+    images: [
+      {
+        url: 'https://saluguharshitabhanu.vercel.app/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Harshita Bhanu - Full-Stack Developer',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Harshita Bhanu | Full-Stack Developer',
+    description: 'Shipped 5 products, won 2 hackathons, MongoDB Track Winner',
   },
 }
 
