@@ -339,7 +339,6 @@ export default function CodingProfilesSection() {
               <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between">
                 <div>
                   <h3 className="font-serif text-xl font-bold text-white">Codeforces</h3>
-                  <p className="text-white/70 font-mono text-xs">@shiki_20</p>
                 </div>
                 <div className="flex flex-col items-end gap-1">
                   <LiveBadge isFallback={!!cf.fallback} />
@@ -403,7 +402,6 @@ export default function CodingProfilesSection() {
               <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between">
                 <div>
                   <h3 className="font-serif text-xl font-bold text-white">CodeChef</h3>
-                  <p className="text-white/70 font-mono text-xs">@shiki_20</p>
                 </div>
                 <div className="p-2.5 rounded-xl bg-white/20 backdrop-blur-sm">
                   <Award className="w-6 h-6 text-white" />

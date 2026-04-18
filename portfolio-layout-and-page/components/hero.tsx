@@ -317,7 +317,7 @@ export default function Hero() {
                   className="absolute -bottom-4 -left-4 px-4 py-2 bg-card border border-border rounded-xl shadow-lg"
                   style={{ transform: 'translateZ(50px)' }}
                 >
-                  <span className="font-mono text-sm text-accent">275+ solved</span>
+                  <span className="font-mono text-sm text-accent">500+ solved</span>
                 </motion.div>
                 
                 <motion.div

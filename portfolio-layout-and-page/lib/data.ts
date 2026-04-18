@@ -72,7 +72,7 @@ export const STATS = [
   },
   {
     label: "Competitive Problems",
-    value: "322+",
+    value: "500+",
     description: "LeetCode challenges solved"
   },
 ]
@@ -112,9 +112,8 @@ export const PROJECTS: Project[] = [
     longDescription: "A comprehensive multi-tenant SaaS platform designed for efficient bug tracking and team collaboration. Features include real-time notifications via WebSocket, role-based access control, advanced filtering and search capabilities, and detailed analytics dashboards.",
     tags: ["Next.js 14", "TypeScript", "PostgreSQL", "Redis", "WebSocket", "Bootstrap"],
     category: ["Full-Stack", "SaaS"],
-    
-    // TODO: DEPLOYMENT IN PROGRESS - Add demo URL when deployed
-    // demoUrl: "https://bug-tracker-saas.vercel.app/",
+
+    demoUrl: "https://youtu.be/jkp0S1r_nMM",
 
     repoUrl: "https://github.com/Git-brintsi20/bug-tracker-saas",
     
