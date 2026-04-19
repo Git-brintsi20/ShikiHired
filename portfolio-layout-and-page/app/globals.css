@@ -14,39 +14,39 @@
     --color-light-surface: #F5F7FA;
 
     /* Light Mode */
-    --background: 210 40% 98%;
-    --foreground: 220 14% 10%;
-    --card: 0 0% 100%;
-    --card-foreground: 220 14% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 14% 10%;
+    --background: 210 30% 94%;
+    --foreground: 220 20% 8%;
+    --card: 210 20% 97%;
+    --card-foreground: 220 20% 8%;
+    --popover: 210 20% 97%;
+    --popover-foreground: 220 20% 8%;
     --primary: 217 81% 55%;
     --primary-foreground: 0 0% 100%;
     --secondary: 268 59% 67%;
     --secondary-foreground: 0 0% 100%;
     --accent: 142 72% 51%;
     --accent-foreground: 0 0% 100%;
-    --muted: 210 16% 82%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 210 18% 75%;
+    --muted-foreground: 215 18% 42%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
+    --border: 214 28% 85%;
+    --input: 214 28% 85%;
     --ring: 217 81% 55%;
-    --chart-1: 217 81% 55%;
-    --chart-2: 268 59% 67%;
-    --chart-3: 142 72% 51%;
-    --chart-4: 215 86% 67%;
-    --chart-5: 210 16% 82%;
+    --chart-1: 217 81% 50%;
+    --chart-2: 268 59% 60%;
+    --chart-3: 142 72% 45%;
+    --chart-4: 215 86% 60%;
+    --chart-5: 210 18% 75%;
     --radius: 0.5rem;
 
     /* Brand Colors */
     --brand-orange: 25 100% 52%;
 
     /* Light Mode Enhancements */
-    --glass-light: rgba(255,255,255,0.6);
-    --shine-light: rgba(0,0,0,0.04);
-    --overlay-light: rgba(65,105,225,0.08);
+    --glass-light: rgba(255,255,255,0.7);
+    --shine-light: rgba(0,0,0,0.05);
+    --overlay-light: rgba(65,105,225,0.1);
     --icon-primary: 217 81% 50%;
     --icon-secondary: 210 40% 30%;
   }
