@@ -136,6 +136,26 @@ export default function ProjectsCarousel() {
             </motion.div>
           </div>
 
+          {/* Explore All Projects Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-center mt-8 mb-8"
+          >
+            <motion.a
+              href="#featured-projects"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-primary via-secondary to-accent text-white font-semibold hover:shadow-lg transition-shadow"
+            >
+              Explore All My Projects
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </motion.a>
+          </motion.div>
+
           {/* Navigation Controls */}
           <div className="flex items-center justify-between mt-6">
             {/* Carousel Dots */}

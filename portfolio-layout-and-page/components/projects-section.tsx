@@ -26,26 +26,6 @@ export default function ProjectsSection() {
       </div>
       
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Explore Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <motion.a
-            href="#featured-projects"
-            whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-primary via-secondary to-accent text-white font-semibold hover:shadow-lg transition-shadow"
-          >
-            Explore All My Projects
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </motion.a>
-        </motion.div>
-
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
