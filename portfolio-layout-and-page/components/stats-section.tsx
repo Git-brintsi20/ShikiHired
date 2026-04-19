@@ -219,7 +219,7 @@ function StatCard({ label, value, description, delay = 0, index = 0 }: StatCardP
         <motion.div
           className="absolute inset-0 opacity-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%)',
+            background: 'linear-gradient(105deg, transparent 40%, hsl(var(--primary) / 0.15) 50%, transparent 60%)',
             opacity: isHovered ? 1 : 0,
           }}
           animate={isHovered ? { x: ['-100%', '200%'] } : { x: '0%' }}
@@ -238,7 +238,7 @@ export default function StatsSection() {
     <section ref={sectionRef} className="relative w-full py-16 md:py-24 overflow-hidden">
       {/* Background with grid pattern */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(65,105,225,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(65,105,225,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
+        <div className="absolute inset-0 grid-pattern-lg" />
         <motion.div 
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 8, repeat: Infinity }}

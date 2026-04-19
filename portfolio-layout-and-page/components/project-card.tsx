@@ -136,7 +136,7 @@ export default function ProjectCard({
             <motion.div
               className="absolute inset-0 z-10 pointer-events-none"
               style={{
-                background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.03) 45%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.03) 55%, transparent 60%)',
+                background: 'linear-gradient(105deg, transparent 40%, hsl(var(--primary) / 0.05) 45%, hsl(var(--primary) / 0.12) 50%, hsl(var(--primary) / 0.05) 55%, transparent 60%)',
                 opacity: isHovered ? 1 : 0,
               }}
               animate={isHovered ? { x: ['-100%', '200%'] } : { x: '-100%' }}

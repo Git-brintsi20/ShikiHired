@@ -163,7 +163,7 @@ export default function CodingProfilesSection() {
         <motion.div
           animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 10, repeat: Infinity }}
-          className="absolute top-1/4 -left-40 w-[500px] h-[500px] bg-[#FFA116]/10 rounded-full blur-[120px]"
+          className="absolute top-1/4 -left-40 w-[500px] h-[500px] bg-[hsl(25_100%_52%)/0.1] rounded-full blur-[120px]"
         />
         <motion.div
           animate={{ scale: [1.3, 1, 1.3], opacity: [0.5, 0.3, 0.5] }}
@@ -183,7 +183,7 @@ export default function CodingProfilesSection() {
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFA116]/10 text-[#FFA116] text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[hsl(25_100%_52%)/0.1] text-[hsl(25_100%_52%)] text-sm font-medium mb-6"
           >
             <Zap className="w-4 h-4" />
             Competitive Programming
@@ -191,7 +191,7 @@ export default function CodingProfilesSection() {
 
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Coding{' '}
-            <span className="bg-gradient-to-r from-[#FFA116] via-primary to-secondary bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[hsl(25_100%_52%)] via-primary to-secondary bg-clip-text text-transparent">
               Profiles
             </span>
           </h2>

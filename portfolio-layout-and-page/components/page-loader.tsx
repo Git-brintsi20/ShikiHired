@@ -71,7 +71,7 @@ export default function PageLoader() {
               transition={{ duration: 1.5, repeat: Infinity }}
               className="text-sm text-muted-foreground font-medium"
             >
-              Loading your portfolio...
+              Loading Portfolio...
             </motion.p>
 
             {/* Dots animation */}

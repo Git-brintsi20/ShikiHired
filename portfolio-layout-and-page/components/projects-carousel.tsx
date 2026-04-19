@@ -46,7 +46,7 @@ export default function ProjectsCarousel() {
     <section ref={sectionRef} id="projects" className="relative w-full py-16 md:py-24 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(65,105,225,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(65,105,225,0.02)_1px,transparent_1px)] bg-[size:40px_40px]" />
+        <div className="absolute inset-0 grid-pattern" />
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 10, repeat: Infinity }}
@@ -109,7 +109,7 @@ export default function ProjectsCarousel() {
             </AnimatePresence>
 
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
 
             {/* Project Info Overlay */}
             <motion.div
@@ -122,7 +122,7 @@ export default function ProjectsCarousel() {
                 <h3 className="font-serif text-2xl md:text-3xl font-bold mb-2">
                   {currentProject.title}
                 </h3>
-                <p className="text-sm md:text-base text-gray-200 mb-4 line-clamp-2">
+                <p className="text-sm md:text-base text-white mb-4 line-clamp-2">
                   {currentProject.description}
                 </p>
                 <div className="flex flex-wrap gap-2">

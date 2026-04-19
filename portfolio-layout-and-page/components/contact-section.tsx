@@ -126,7 +126,7 @@ export default function ContactSection() {
             <motion.div
               className="absolute inset-0 opacity-0"
               style={{
-                background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.05) 45%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 55%, transparent 60%)',
+                background: 'linear-gradient(105deg, transparent 40%, hsl(var(--primary) / 0.05) 45%, hsl(var(--primary) / 0.12) 50%, hsl(var(--primary) / 0.05) 55%, transparent 60%)',
               }}
               animate={isHovered ? { x: ['-100%', '200%'], opacity: 1 } : { x: '-100%', opacity: 0 }}
               transition={{ duration: 0.8 }}

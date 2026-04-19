@@ -99,7 +99,7 @@ function TechBadge({ name, index, categoryIndex }: TechBadgeProps) {
         <motion.div
           className="absolute inset-0 opacity-0"
           style={{
-            background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.05) 50%, transparent 60%)',
+            background: 'linear-gradient(105deg, transparent 40%, hsl(var(--primary) / 0.06) 50%, transparent 60%)',
           }}
           animate={isHovered ? { x: ['-100%', '200%'], opacity: 1 } : { x: '-100%', opacity: 0 }}
           transition={{ duration: 0.6 }}
@@ -189,7 +189,7 @@ export default function TechStackSection() {
     <section ref={sectionRef} id="tech-stack" className="relative w-full py-16 md:py-24 overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(65,105,225,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(65,105,225,0.02)_1px,transparent_1px)] bg-[size:40px_40px]" />
+        <div className="absolute inset-0 grid-pattern" />
         <motion.div 
           animate={{ scale: [1, 1.2, 1], x: [0, 50, 0] }}
           transition={{ duration: 20, repeat: Infinity }}

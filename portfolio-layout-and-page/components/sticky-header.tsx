@@ -131,9 +131,9 @@ export default function StickyHeader() {
                 aria-label="Toggle theme"
               >
                 {isDark ? (
-                  <Sun className="w-5 h-5 text-yellow-500" />
+                  <Sun className="w-5 h-5 text-primary" />
                 ) : (
-                  <Moon className="w-5 h-5 text-slate-400" />
+                  <Moon className="w-5 h-5 text-muted-foreground" />
                 )}
               </motion.button>
 
@@ -179,9 +179,9 @@ export default function StickyHeader() {
                 aria-label="Toggle theme"
               >
                 {isDark ? (
-                  <Sun className="w-4 h-4 text-yellow-500" />
+                  <Sun className="w-4 h-4 text-primary" />
                 ) : (
-                  <Moon className="w-4 h-4 text-slate-400" />
+                  <Moon className="w-4 h-4 text-muted-foreground" />
                 )}
               </motion.button>
 
