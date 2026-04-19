@@ -96,7 +96,7 @@ export default function AchievementsSection() {
   }
 
   return (
-    <section ref={sectionRef} id="achievements" className="relative w-full bg-card/50 border-y border-border py-16 md:py-20 overflow-hidden">
+    <section ref={sectionRef} id="achievements" className="relative w-full bg-gradient-to-br from-background/60 via-background to-card/40 border-y border-border/50 py-16 md:py-20 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/3 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
@@ -206,7 +206,7 @@ export default function AchievementsSection() {
                         <p className="text-sm text-muted-foreground">{item.organization}</p>
                       </div>
                       {item.type === 'experience' && (
-                        <Zap className="w-5 h-5 text-orange-500 flex-shrink-0 mt-1" />
+                        <Zap className="w-5 h-5 text-[hsl(25_100%_52%)] flex-shrink-0 mt-1" />
                       )}
                     </div>
 

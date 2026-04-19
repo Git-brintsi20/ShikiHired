@@ -182,7 +182,7 @@ export default function TechStackSection() {
     { title: 'Frontend', skills: SKILLS.frontend, icon: Layers, gradient: 'from-primary to-blue-400', delay: 0 },
     { title: 'Backend', skills: SKILLS.backend, icon: Server, gradient: 'from-secondary to-purple-400', delay: 0.15 },
     { title: 'Database', skills: SKILLS.database, icon: Database, gradient: 'from-accent to-emerald-400', delay: 0.3 },
-    { title: 'DevOps & Tools', skills: SKILLS.devops, icon: Cloud, gradient: 'from-orange-500 to-amber-400', delay: 0.45 },
+    { title: 'DevOps & Tools', skills: SKILLS.devops, icon: Cloud, gradient: 'from-[hsl(25_100%_52%)] to-amber-400', delay: 0.45 },
   ]
 
   return (

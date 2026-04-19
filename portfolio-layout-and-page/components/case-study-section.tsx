@@ -153,7 +153,7 @@ export default function CaseStudySection() {
                 </div>
                 <div className="text-center">
                   <div className="flex items-center justify-center gap-1 mb-1">
-                    <Zap className="w-4 h-4 text-orange-500" />
+                    <Zap className="w-4 h-4 text-[hsl(25_100%_52%)]" />
                     <span className="text-lg font-bold text-foreground">{caseStudy.tech.length}</span>
                   </div>
                   <p className="text-xs text-muted-foreground">Technologies</p>
@@ -226,7 +226,7 @@ export default function CaseStudySection() {
                       <ul className="space-y-2">
                         {caseStudy.results.map((result, idx) => (
                           <li key={idx} className="flex items-start gap-3">
-                            <Trophy className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                            <Trophy className="w-5 h-5 text-[hsl(25_100%_52%)] mt-0.5 flex-shrink-0" />
                             <span className="text-sm md:text-base text-foreground/70">{result}</span>
                           </li>
                         ))}

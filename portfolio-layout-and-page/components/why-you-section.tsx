@@ -14,7 +14,7 @@ export default function WhyYouSection() {
       title: 'Proven Track Record',
       description: '5 full-stack products shipped to production with real users',
       points: ['2 hackathon wins', 'MongoDB Track Winner', 'Top 8 of 126 teams'],
-      color: 'from-orange-500 to-amber-400',
+      color: 'from-[hsl(25_100%_52%)] to-amber-400',
     },
     {
       icon: Target,

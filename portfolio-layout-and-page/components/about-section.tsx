@@ -62,7 +62,7 @@ export default function AboutSection() {
       icon: Mic,
       title: 'Competitive Programmer',
       description: '300+ LeetCode · Codeforces · CodeChef 3⭐',
-      color: 'from-orange-500 to-amber-400',
+      color: 'from-[hsl(25_100%_52%)] to-amber-400',
     },
   ]
 
@@ -78,7 +78,7 @@ export default function AboutSection() {
           style={{ y: parallaxY2 }}
           className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-gradient-to-br from-secondary/10 to-accent/5 rounded-full blur-[100px]"
         />
-        <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(65,105,225,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(65,105,225,0.04)_1px,transparent_1px)] bg-[size:30px_30px]" />
       </div>
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
