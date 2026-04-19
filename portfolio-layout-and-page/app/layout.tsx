@@ -3,6 +3,7 @@ import { Playfair_Display, DM_Sans, JetBrains_Mono } from 'next/font/google'
 
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
+import PageLoader from '@/components/page-loader'
 import StickyHeader from '@/components/sticky-header'
 import Footer from '@/components/footer'
 import CursorSpotlight from '@/components/cursor-spotlight'
@@ -72,8 +73,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="font-sans antialiased bg-background text-foreground flex flex-col min-h-screen scroll-smooth">
+        <PageLoader />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange={false}>
-          <CursorSpotlight />
+          {/* <CursorSpotlight /> */}
           <GrainOverlay />
           <StickyHeader />
           <main className="flex-1 pt-16">{children}</main>

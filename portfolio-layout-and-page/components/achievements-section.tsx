@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { GraduationCap, Briefcase, Award, Calendar } from 'lucide-react'
+import { GraduationCap, Briefcase, Award, Calendar, Zap, Trophy } from 'lucide-react'
 import { EXPERIENCE, EDUCATION, CERTIFICATES } from '@/lib/data'
 
 type TimelineItem = {
@@ -111,14 +111,19 @@ export default function AchievementsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-secondary/10 border border-secondary/30 text-secondary text-sm font-medium mb-4">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/30 text-secondary text-sm font-medium mb-4"
+          >
+            <Trophy className="w-4 h-4" />
             My Journey
-          </span>
+          </motion.span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Achievements & Experience
+            Achievements & <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Experience</span>
           </h2>
           <p className="font-sans text-lg text-muted-foreground max-w-2xl mx-auto">
-            A timeline of my professional growth, certifications, and milestones
+            Professional growth, technical expertise, and strategic milestones on my journey as a developer
           </p>
         </motion.div>
 
@@ -175,36 +180,48 @@ export default function AchievementsSection() {
 
                 {/* Content Card */}
                 <motion.div
-                  whileHover={{ y: -4 }}
+                  whileHover={{ y: -4, scale: 1.02 }}
                   className={`ml-8 md:ml-0 md:w-[calc(50%-2rem)] ${
                     isLeft ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
                   }`}
                 >
                   <div
-                    className={`p-6 rounded-2xl bg-background border ${colors.border} hover:shadow-lg transition-all duration-300`}
+                    className={`p-6 rounded-2xl bg-background border ${colors.border} hover:shadow-xl transition-all duration-300 group relative overflow-hidden`}
                   >
+                    {/* Gradient background on hover */}
+                    <div className={`absolute inset-0 ${colors.bg} opacity-0 group-hover:opacity-50 transition-opacity duration-300 -z-10`} />
+
                     {/* Header */}
-                    <div className="flex items-start gap-4 mb-3">
-                      <div className={`p-3 rounded-xl ${colors.bg} shrink-0`}>
+                    <div className="flex items-start gap-4 mb-3 relative z-10">
+                      <motion.div
+                        className={`p-3 rounded-xl ${colors.bg} shrink-0`}
+                        whileHover={{ scale: 1.15, rotate: 5 }}
+                      >
                         <IconComponent className={`w-5 h-5 ${colors.text}`} />
-                      </div>
+                      </motion.div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-sans text-lg font-bold text-foreground line-clamp-2">
+                        <h3 className="font-sans text-lg font-bold text-foreground line-clamp-2 group-hover:text-primary transition-colors">
                           {item.title}
                         </h3>
                         <p className="text-sm text-muted-foreground">{item.organization}</p>
                       </div>
+                      {item.type === 'experience' && (
+                        <Zap className="w-5 h-5 text-orange-500 flex-shrink-0 mt-1" />
+                      )}
                     </div>
 
                     {/* Period Badge */}
-                    <div className="flex items-center gap-2 mb-3">
+                    <motion.div
+                      className="flex items-center gap-2 mb-3 relative z-10"
+                      whileHover={{ x: 5 }}
+                    >
                       <Calendar className="w-4 h-4 text-muted-foreground" />
-                      <span className="text-sm text-muted-foreground">{item.period}</span>
-                    </div>
+                      <span className="text-sm font-medium text-muted-foreground">{item.period}</span>
+                    </motion.div>
 
                     {/* Description */}
                     {item.description && (
-                      <p className="text-sm text-foreground/70 leading-relaxed line-clamp-3">
+                      <p className="text-sm text-foreground/70 leading-relaxed line-clamp-3 relative z-10">
                         {item.description}
                       </p>
                     )}

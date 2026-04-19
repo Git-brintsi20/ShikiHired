@@ -1,8 +1,8 @@
 import Hero from '@/components/hero'
-import FeaturedProjects from '@/components/featured-projects'
+import ProjectsCarousel from '@/components/projects-carousel'
+import ProjectsSection from '@/components/projects-section'
 import AboutSection from '@/components/about-section'
 import WhyYouSection from '@/components/why-you-section'
-import ProjectsSection from '@/components/projects-section'
 import AchievementsSection from '@/components/achievements-section'
 import TestimonialsSection from '@/components/testimonials-section'
 import CaseStudySection from '@/components/case-study-section'
@@ -16,17 +16,17 @@ export default function Home() {
       {/* Hero Section */}
       <Hero />
 
-      {/* Featured Projects - Top 3 Highlighted */}
-      <FeaturedProjects />
+      {/* Projects Carousel - Best Projects Showcase */}
+      <ProjectsCarousel />
+
+      {/* Complete Projects Gallery */}
+      <ProjectsSection />
 
       {/* Tech Stack Section */}
       <TechStackSection />
 
       {/* Coding Profiles Section */}
       <CodingProfilesSection />
-
-      {/* Complete Projects Gallery */}
-      <ProjectsSection />
 
       {/* About / Beyond The Code - Redesigned Layout */}
       <AboutSection />

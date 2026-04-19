@@ -5,7 +5,7 @@ import { motion, useInView } from 'framer-motion'
 import { CheckCircle2, Zap, Trophy, Target } from 'lucide-react'
 
 export default function WhyYouSection() {
-  const sectionRef = useRef<HTMLSection>(null)
+  const sectionRef = useRef<HTMLElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
   const reasons = [

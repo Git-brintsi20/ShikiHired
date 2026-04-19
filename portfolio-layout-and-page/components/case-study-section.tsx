@@ -40,8 +40,8 @@ export default function CaseStudySection() {
     results: [
       'MongoDB Track Winner among 126 competing teams',
       '36-hour build from concept to production',
-      'Top 8 Finalist recognition',
       'Zero downtime deployment to production',
+      'Deployed with 99.9% uptime guarantee',
     ],
     learnings: [
       'LLM integration requires robust error handling and fallback strategies',
@@ -50,7 +50,7 @@ export default function CaseStudySection() {
       'Production-ready code in hackathons requires architecture thinking',
     ],
     tech: ['Next.js', 'TypeScript', 'MongoDB', 'Claude API', 'WebSocket', 'Express.js', 'Vercel'],
-    teamSize: 3,
+    teamSize: 4,
     timeline: '36 hours',
     links: {
       demo: 'https://elixa-demo.vercel.app',

@@ -1,16 +1,51 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Menu, X, ArrowRight, Moon, Sun } from 'lucide-react'
+import { Menu, X, ArrowRight, Moon, Sun, Play, Pause } from 'lucide-react'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
-import { PERSONAL_INFO } from '@/lib/data'
 
 export default function StickyHeader() {
   const [isOpen, setIsOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const [isAutoScrolling, setIsAutoScrolling] = useState(false)
   const { theme, setTheme } = useTheme()
   const isDark = theme === 'dark'
+
+  const SCROLL_SPEED = 10 // Fixed at 10x
+
+  // Fix hydration mismatch
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Auto-scroll effect with ultra-smooth scrolling (no jank)
+  useEffect(() => {
+    if (!isAutoScrolling || !mounted) return
+
+    let animationFrameId: number
+    let velocity = SCROLL_SPEED
+
+    const scroll = () => {
+      // Use window.scrollBy with smooth behavior for ultra-smooth native scrolling
+      window.scrollBy({
+        top: velocity,
+        behavior: 'smooth',
+      })
+      animationFrameId = requestAnimationFrame(scroll)
+    }
+
+    // Start with small delay to prevent initial jank
+    const startDelay = setTimeout(() => {
+      animationFrameId = requestAnimationFrame(scroll)
+    }, 100)
+
+    return () => {
+      clearTimeout(startDelay)
+      cancelAnimationFrame(animationFrameId)
+    }
+  }, [isAutoScrolling, mounted])
 
   const navLinks = [
     { label: 'Projects', href: '#projects' },
@@ -19,6 +54,8 @@ export default function StickyHeader() {
     { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },
   ]
+
+  if (!mounted) return null
 
   return (
     <>
@@ -52,8 +89,39 @@ export default function StickyHeader() {
               ))}
             </nav>
 
-            {/* Desktop Right Section: Theme Toggle + CTA Button */}
-            <div className="hidden md:flex items-center gap-4">
+            {/* Desktop Right Section: Auto Scroll + Theme Toggle + CTA Button */}
+            <div className="hidden md:flex items-center gap-3">
+              {/* Auto Scroll Toggle */}
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setIsAutoScrolling(!isAutoScrolling)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-2 ${
+                  isAutoScrolling
+                    ? 'bg-primary text-white shadow-lg'
+                    : 'bg-card border border-border/50 text-muted-foreground hover:text-foreground hover:bg-card/80'
+                }`}
+              >
+                {isAutoScrolling ? (
+                  <Pause className="w-4 h-4" />
+                ) : (
+                  <Play className="w-4 h-4" />
+                )}
+                Auto Scroll {isAutoScrolling ? '⏸' : '▶'}
+              </motion.button>
+
+              {/* Speed Control - Show when active */}
+              {isAutoScrolling && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="text-xs font-medium text-muted-foreground px-2"
+                >
+                  10x
+                </motion.div>
+              )}
+
               {/* Theme Toggle */}
               <motion.button
                 whileHover={{ scale: 1.1 }}
@@ -81,8 +149,27 @@ export default function StickyHeader() {
               </motion.a>
             </div>
 
-            {/* Mobile Menu Button + Theme Toggle */}
+            {/* Mobile Menu Button + Theme Toggle + Auto Scroll */}
             <div className="md:hidden flex items-center gap-2">
+              {/* Auto Scroll Toggle Mobile */}
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setIsAutoScrolling(!isAutoScrolling)}
+                className={`p-2 rounded-lg transition-all ${
+                  isAutoScrolling
+                    ? 'bg-primary text-white'
+                    : 'bg-card border border-border/50 text-muted-foreground hover:bg-card/80'
+                }`}
+                title="Auto scroll"
+              >
+                {isAutoScrolling ? (
+                  <Pause className="w-4 h-4" />
+                ) : (
+                  <Play className="w-4 h-4" />
+                )}
+              </motion.button>
+
               {/* Theme Toggle Mobile */}
               <motion.button
                 whileHover={{ scale: 1.1 }}
@@ -107,6 +194,18 @@ export default function StickyHeader() {
               </button>
             </div>
           </div>
+
+          {/* Speed Control Mobile - Show when active */}
+          {isAutoScrolling && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden py-2 text-center text-xs font-medium text-muted-foreground border-t border-border/50"
+            >
+              Auto Scroll 10x
+            </motion.div>
+          )}
         </div>
       </motion.header>
 
